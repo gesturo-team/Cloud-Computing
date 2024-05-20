@@ -8,7 +8,10 @@
 - Request:
 
 ```
-
+{
+    "email": "user@example.com",
+    "password": "userpassword"
+}
 ```
 
 - Respoonse:
@@ -16,20 +19,27 @@
 ```
 code: 201
 body:
- {
-
- }
-
-code:400
-body:
 {
-
+    "status": "success",
+    "message": "Login successful",
 }
+```
 
-code:500
+```
+code: 400
 body:
 {
+    "status": "fail",
+    "message": "Invalid email or password"
+}
+```
 
+```
+code: 500
+body:
+{
+    "status": "error",
+    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
 }
 ```
 
@@ -43,28 +53,42 @@ body:
 - Request:
 
 ```
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "password": "securepassword"
+}
 
 ```
 
 - Respoonse:
 
 ```
+
 code: 201
 body:
- {
-
- }
-
-code:400
-body:
 {
-
+    "status": "success",
+    "message": "User registered successfully",
 }
+```
 
-code:500
+```
+code: 400
 body:
 {
+    "status": "fail",
+    "message": "Invalid input data"
+}
+```
 
+```
+code: 500
+body:
+{
+    "status": "error",
+    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
 }
 ```
 
@@ -73,31 +97,32 @@ body:
 - Method : POST
 - URL : /logout
 
-- Request:
-
-```
-
-```
-
 - Respoonse:
 
 ```
-code: 201
-body:
- {
-
- }
-
-code:400
+code: 200
 body:
 {
-
+    "status": "fail",
+    "message": "Logout successful"
 }
+```
 
-code:500
+```
+code: 400
 body:
 {
+    "status": "fail",
+    "message": "Invalid"
+}
+```
 
+```
+code: 500
+body:
+{
+    "status": "error",
+    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
 }
 ```
 
@@ -108,32 +133,35 @@ body:
 - Method : GET
 - URL : /dictionary/alphabet
 
-- Request:
-
-```
-
-```
-
 - Respoonse:
 
 ```
+
 code: 201
 body:
- {
+{
+    "status": "success",
+    "message": "Dictionary obtain succesfully",
+    "data":
+}
+```
 
- }
-
+```
 code:400
 body:
 {
 
 }
+```
 
-code:500
+```
+code: 500
 body:
 {
-
+    "status": "error",
+    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
 }
+
 ```
 
 <br>
@@ -149,25 +177,30 @@ body:
 
 ```
 
-- Respoonse:
+- Response:
 
 ```
 code: 201
 body:
- {
+{
 
- }
+}
+```
 
+```
 code:400
 body:
 {
 
 }
+```
 
-code:500
+```
+code: 500
 body:
 {
-
+    "status": "error",
+    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
 }
 ```
 
@@ -178,31 +211,67 @@ body:
 - Method : GET
 - URL : /quiz
 
-- Request:
-
-```
-
-```
-
 - Respoonse:
 
 ```
-code: 201
+code: 200
 body:
- {
+{
+    "status" : "success"
+    "message" : "Quiz obtain succesfully"
+    "data" :
+{
+    "id": "",
+    "questions": [
+        {
+            "question": "",
+            "urlImage": "",
+            "userAnswer": "",
+            "answers": [
+        {
+            "option": "A",
+            "answer": "Paris",
+            "correct": true
+        },
+        {
+            "option": "B",
+            "answer": "Londres",
+            "correct": false
+        },
+        {
+            "option": "C",
+            "answer": "Berlin",
+            "correct": false
+        },
+        {
+            "option": "D",
+            "answer": "Madrid",
+            "correct": false
+        }
+    ]
+    }
+    ],
+    "createdAt": "",
+    "updatedAt": ""
+}
+}
+```
 
- }
-
+```
 code:400
 body:
 {
-
+    "status" : "fail"
+    "message": "Bad Request"
 }
+```
 
-code:500
+```
+code: 500
 body:
 {
-
+    "status": "error",
+    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
 }
 ```
 
@@ -216,29 +285,70 @@ body:
 - Request:
 
 ```
-
+{
+    "questions": [
+            {
+                "question": "",
+                "urlImage": "",
+                "userAnswer": "",
+                "answers": [
+            {
+                "option": "A",
+                "answer": "Paris",
+                "correct": true
+            },
+            {
+                "option": "B",
+                "answer": "Londres",
+                "correct": false
+            },
+            {
+                "option": "C",
+                "answer": "Berlin",
+                "correct": false
+            },
+            {
+                "option": "D",
+                "answer": "Madrid",
+                "correct": false
+            }
+        ]
+        }
+        ],
+        "createdAt": "",
+        "updatedAt": ""
+    ]
+}
 ```
 
 - Respoonse:
 
 ```
-code: 201
+code:201
 body:
- {
+{
+    "status" : "fail"
+    "message": "Quiz post success"
+}
+```
 
- }
-
+```
 code:400
 body:
 {
-
+    "status" : "fail"
+    "message": "Bad Request"
 }
+```
 
-code:500
+```
+code: 500
 body:
 {
-
+    "status": "error",
+    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
 }
+
 ```
 
 <br>
@@ -250,29 +360,77 @@ body:
 
 - Request:
 
-```
-
-```
-
 - Respoonse:
 
 ```
-code: 201
+code: 200
 body:
- {
+{
+    "status" : "success"
+    "message": "Get quiz user"
+    "data" : {
+    "_id": "",
+    "email": "",
+    "password": "",
+    "firstName": "",
+    "lastName": "",
+    "createdAt": "",
+    "updatedAt": "",
+    "quiz": [
+        {
+        "_id": "",
+        "questions": [
+          {
+            "question": "",
+            "urlImage": "",
+            "userAnswer": "",
+            "answers": [
+              {
+                "option": "A",
+                "answer": "Paris",
+                "correct": true
+              },
+              {
+                "option": "B",
+                "answer": "Londres",
+                "correct": false
+              },
+              {
+                "option": "C",
+                "answer": "Berlin",
+                "correct": false
+              },
+              {
+                "option": "D",
+                "answer": "Madrid",
+                "correct": false
+              }
+            ]
+          }
+        ],
+        "createdAt": "",
+        "updatedAt": ""
+      }
+    ]
+}
+}
+```
 
- }
-
+```
 code:400
 body:
 {
-
+    "status" : "fail"
+    "message": "Bad Request"
 }
+```
 
-code:500
+```
+code: 500
 body:
 {
-
+    "status": "error",
+    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
 }
 ```
 
@@ -283,33 +441,68 @@ body:
 - Method : GET
 - URL : /quiz/{{ quizId }}
 
-- Request:
-
-```
-
-```
-
 - Respoonse:
 
 ```
 code: 201
 body:
- {
+{
+    "status" : "success"
+    "message" : "Quiz obtain succesfully"
+    "data" :
+    {
+    "id": "",
+    "questions": [
+        {
+            "question": "",
+            "urlImage": "",
+            "userAnswer": "",
+            "answers": [
+        {
+            "option": "A",
+            "answer": "Paris",
+            "correct": true
+        },
+        {
+            "option": "B",
+            "answer": "Londres",
+            "correct": false
+        },
+        {
+            "option": "C",
+            "answer": "Berlin",
+            "correct": false
+        },
+        {
+            "option": "D",
+            "answer": "Madrid",
+            "correct": false
+        }
+    ]
+    }
+    ],
+    "createdAt": "",
+    "updatedAt": ""
+}
+}
+```
 
- }
-
+```
 code:400
 body:
 {
-
+    "status" : "fail"
+    "message": "Bad Request"
 }
+```
 
-code:500
+```
+code: 500
 body:
 {
-
+    "status": "error",
+    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
 }
-
 ```
 
 <br>
