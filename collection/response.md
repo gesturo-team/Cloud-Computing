@@ -15,7 +15,7 @@
 }
 ```
 
-- Respoonse:
+- Response:
 
 ```
 Status Code: 200
@@ -40,7 +40,7 @@ Status Code: 500
 body:
 {
     "status": "error",
-    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
+    "message": "Internal Server Error",
 }
 ```
 
@@ -90,7 +90,7 @@ Status Code: 500
 body:
 {
     "status": "error",
-    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
+    "message": "Internal Server Error",
 }
 ```
 
@@ -125,7 +125,7 @@ Status Code: 500
 body:
 {
     "status": "error",
-    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
+    "message": "Internal Server Error",
 }
 ```
 
@@ -182,7 +182,7 @@ Status Code: 500
 body:
 {
     "status": "error",
-    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
+    "message": "Internal Server Error",
 }
 
 ```
@@ -240,7 +240,7 @@ Status Code: 500
 body:
 {
     "status": "error",
-    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
+    "message": "Internal Server Error",
 }
 ```
 
@@ -313,7 +313,7 @@ Status Code: 500
 body:
 {
     "status": "error",
-    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
+    "message": "Internal Server Error",
 }
 ```
 
@@ -391,7 +391,7 @@ Status Code: 500
 body:
 {
     "status": "error",
-    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
+    "message": "Internal Server Error",
 }
 
 ```
@@ -476,7 +476,7 @@ Status Code: 500
 body:
 {
     "status": "error",
-    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
+    "message": "Internal Server Error",
 }
 ```
 
@@ -549,6 +549,6 @@ Status Code: 500
 body:
 {
     "status": "error",
-    "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
+    "message": "Internal Server Error",
 }
 ```
