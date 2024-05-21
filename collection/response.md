@@ -2,6 +2,7 @@
 
 ## Login
 
+- Auth : Not Required
 - Method : POST
 - URL : /login
 
@@ -17,7 +18,7 @@
 - Respoonse:
 
 ```
-code: 201
+Status Code: 200
 body:
 {
     "status": "success",
@@ -26,7 +27,7 @@ body:
 ```
 
 ```
-code: 400
+Status Code: 400
 body:
 {
     "status": "fail",
@@ -35,7 +36,7 @@ body:
 ```
 
 ```
-code: 500
+Status Code: 500
 body:
 {
     "status": "error",
@@ -47,6 +48,7 @@ body:
 
 ## Register
 
+- Auth : Not Required
 - Method : POST
 - URL : /register
 
@@ -66,7 +68,7 @@ body:
 
 ```
 
-code: 201
+Status Code: 201
 body:
 {
     "status": "success",
@@ -75,16 +77,16 @@ body:
 ```
 
 ```
-code: 400
+Status Code: 400
 body:
 {
     "status": "fail",
-    "message": "Invalid input data"
+    "message": "Register failed"
 }
 ```
 
 ```
-code: 500
+Status Code: 500
 body:
 {
     "status": "error",
@@ -94,13 +96,14 @@ body:
 
 ## Logout
 
+- Auth : Required
 - Method : POST
 - URL : /logout
 
 - Respoonse:
 
 ```
-code: 200
+Status Code: 200
 body:
 {
     "status": "fail",
@@ -109,16 +112,16 @@ body:
 ```
 
 ```
-code: 400
+Status Code: 400
 body:
 {
     "status": "fail",
-    "message": "Invalid"
+    "message": "Logout failed"
 }
 ```
 
 ```
-code: 500
+Status Code: 500
 body:
 {
     "status": "error",
@@ -130,32 +133,52 @@ body:
 
 ## Dictionary Alphabet
 
+- Auth : Required
 - Method : GET
 - URL : /dictionary/alphabet
 
 - Respoonse:
 
 ```
-
-code: 201
+Status Code: 200
 body:
 {
     "status": "success",
-    "message": "Dictionary obtain succesfully",
-    "data":
+    "message": "Dictionary alphabet obtain succesfully",
+    "data": {
+        "_id": "",
+        "type": "alphabet",
+        "createdAt": "",
+        "updatedAt": "",
+        "wordList" [
+            {
+            "_id": "",
+            "value": "",
+            "urlImage": "",
+            "description": ""
+            },
+            {
+            "_id": "",
+            "value": "",
+            "urlImage": "",
+            "description": ""
+            },
+        ]
+    }
 }
 ```
 
 ```
-code:400
+Status Code:400
 body:
 {
-
+    "status": "success",
+    "message": "Dictionary failed to obtain",
 }
 ```
 
 ```
-code: 500
+Status Code: 500
 body:
 {
     "status": "error",
@@ -168,35 +191,52 @@ body:
 
 ## Dictionary Number
 
+- Auth : Required
 - Method : GET
 - URL : /dictionary/number
-
-- Request:
-
-```
-
-```
 
 - Response:
 
 ```
-code: 201
+Status Code: 200
 body:
 {
-
+    "status": "success",
+    "message": "Dictionary number obtain succesfully",
+    "data": {
+        "_id": "",
+        "type": "number",
+        "createdAt": "",
+        "updatedAt": "",
+        "wordList" [
+            {
+            "_id": "",
+            "value": "",
+            "urlImage": "",
+            "description": ""
+            },
+            {
+            "_id": "",
+            "value": "",
+            "urlImage": "",
+            "description": ""
+            },
+        ]
+    }
 }
 ```
 
 ```
-code:400
+Status Code:400
 body:
 {
-
+    "status": "success",
+    "message": "Dictionary failed to obtain",
 }
 ```
 
 ```
-code: 500
+Status Code: 500
 body:
 {
     "status": "error",
@@ -208,66 +248,68 @@ body:
 
 ## Get Quiz
 
+- Auth : Required
 - Method : GET
 - URL : /quiz
 
 - Respoonse:
 
 ```
-code: 200
+Status Code: 200
 body:
 {
-    "status" : "success"
-    "message" : "Quiz obtain succesfully"
-    "data" :
-{
-    "id": "",
-    "questions": [
-        {
-            "question": "",
-            "urlImage": "",
-            "userAnswer": "",
-            "answers": [
-        {
-            "option": "A",
-            "answer": "Paris",
-            "correct": true
-        },
-        {
-            "option": "B",
-            "answer": "Londres",
-            "correct": false
-        },
-        {
-            "option": "C",
-            "answer": "Berlin",
-            "correct": false
-        },
-        {
-            "option": "D",
-            "answer": "Madrid",
-            "correct": false
-        }
-    ]
+    "status": "success",
+    "message": "Quiz obtained successfully",
+    "data": {
+        "id": "",
+        "score" : "",
+        "questions": [
+            {
+                "question": "",
+                "urlImage": "",
+                "userAnswer": "",
+                "answers": [
+                    {
+                        "option": "A",
+                        "answer": "Paris",
+                        "correct": true
+                    },
+                    {
+                        "option": "B",
+                        "answer": "London",
+                        "correct": false
+                    },
+                    {
+                        "option": "C",
+                        "answer": "Berlin",
+                        "correct": false
+                    },
+                    {
+                        "option": "D",
+                        "answer": "Madrid",
+                        "correct": false
+                    }
+                ]
+            }
+        ],
+        "createdAt": "",
+        "updatedAt": ""
     }
-    ],
-    "createdAt": "",
-    "updatedAt": ""
 }
-}
+
 ```
 
 ```
-code:400
+Status Code:400
 body:
 {
     "status" : "fail"
-    "message": "Bad Request"
+    "message": "Quiz failed to obtain"
 }
 ```
 
 ```
-code: 500
+Status Code: 500
 body:
 {
     "status": "error",
@@ -279,6 +321,7 @@ body:
 
 ## Post Quiz
 
+- Auth : Required
 - Method : POST
 - URL : /quiz
 
@@ -286,63 +329,65 @@ body:
 
 ```
 {
-    "questions": [
+        "idUser : "",
+        "id": "",
+        "score" : "",
+        "questions": [
             {
                 "question": "",
                 "urlImage": "",
                 "userAnswer": "",
                 "answers": [
-            {
-                "option": "A",
-                "answer": "Paris",
-                "correct": true
-            },
-            {
-                "option": "B",
-                "answer": "Londres",
-                "correct": false
-            },
-            {
-                "option": "C",
-                "answer": "Berlin",
-                "correct": false
-            },
-            {
-                "option": "D",
-                "answer": "Madrid",
-                "correct": false
+                    {
+                        "option": "A",
+                        "answer": "Paris",
+                        "correct": true
+                    },
+                    {
+                        "option": "B",
+                        "answer": "London",
+                        "correct": false
+                    },
+                    {
+                        "option": "C",
+                        "answer": "Berlin",
+                        "correct": false
+                    },
+                    {
+                        "option": "D",
+                        "answer": "Madrid",
+                        "correct": false
+                    }
+                ]
             }
-        ]
-        }
         ],
         "createdAt": "",
         "updatedAt": ""
-    ]
-}
+    }
 ```
 
 - Respoonse:
 
 ```
-code:201
+Status Code:201
 body:
 {
     "status" : "fail"
-    "message": "Quiz post success"
+    "message": "Quiz submited successfully"
 }
 ```
 
 ```
-code:400
+Status Code:400
 body:
 {
     "status" : "fail"
-    "message": "Bad Request"
+    "message": "Quiz failed to submit"
 }
 ```
 
 ```
-code: 500
+Status Code: 500
 body:
 {
     "status": "error",
@@ -353,25 +398,25 @@ body:
 
 <br>
 
-## Get Quiz User
+## Get Quiz History User
 
+- Auth : Recquired
 - Method : GET
-- URL : /quiz/user/{{ userId }}
+- URL : /quiz/history/{{ userId }}
 
 - Request:
 
 - Respoonse:
 
 ```
-code: 200
+Status Code: 200
 body:
 {
     "status" : "success"
-    "message": "Get quiz user"
+    "message": "Quiz history obtain successfully"
     "data" : {
     "_id": "",
     "email": "",
-    "password": "",
     "firstName": "",
     "lastName": "",
     "createdAt": "",
@@ -379,6 +424,7 @@ body:
     "quiz": [
         {
         "_id": "",
+        "score" : "",
         "questions": [
           {
             "question": "",
@@ -417,16 +463,16 @@ body:
 ```
 
 ```
-code:400
+Status Code:400
 body:
 {
     "status" : "fail"
-    "message": "Bad Request"
+    "message": "Quiz failed to obtain"
 }
 ```
 
 ```
-code: 500
+Status Code: 500
 body:
 {
     "status": "error",
@@ -438,20 +484,22 @@ body:
 
 ## Get Quiz Detail
 
+- Auth : Required
 - Method : GET
 - URL : /quiz/{{ quizId }}
 
 - Respoonse:
 
 ```
-code: 201
+Status Code: 201
 body:
 {
     "status" : "success"
     "message" : "Quiz obtain succesfully"
     "data" :
     {
-    "id": "",
+    "_id": "",
+    "score": "",
     "questions": [
         {
             "question": "",
@@ -488,21 +536,19 @@ body:
 ```
 
 ```
-code:400
+Status Code:400
 body:
 {
     "status" : "fail"
-    "message": "Bad Request"
+    "message": "Quiz failed to obtain"
 }
 ```
 
 ```
-code: 500
+Status Code: 500
 body:
 {
     "status": "error",
     "message": "Internal Server Error, An unexpected error occurred on the server. Please try again later.",
 }
 ```
-
-<br>

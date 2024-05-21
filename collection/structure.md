@@ -14,6 +14,7 @@
     "quiz": [
         {
         "_id": "",
+        "score": "",
         "questions": [
           {
             "question": "",
