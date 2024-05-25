@@ -15,6 +15,7 @@
         {
         "_id": "",
         "score": "",
+        "type" : "number/alphabet"
         "questions": [
           {
             "question": "",

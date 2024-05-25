@@ -246,11 +246,11 @@ body:
 
 <br>
 
-## Get Quiz
+## Get Quiz Alphabet
 
 - Auth : Required
 - Method : GET
-- URL : /quiz
+- URL : /quiz/alphabet
 
 - Respoonse:
 
@@ -263,6 +263,7 @@ body:
     "data": {
         "id": "",
         "score" : "",
+        "type" : "alphabet"
         "questions": [
             {
                 "question": "",
@@ -296,7 +297,79 @@ body:
         "updatedAt": ""
     }
 }
+```
 
+```
+Status Code:400
+body:
+{
+    "status" : "fail"
+    "message": "Quiz failed to obtain"
+}
+```
+
+```
+Status Code: 500
+body:
+{
+    "status": "error",
+    "message": "Internal Server Error",
+}
+```
+
+<br>
+
+## Get Quiz Number
+
+- Auth : Required
+- Method : GET
+- URL : /quiz/number
+
+- Respoonse:
+
+```
+Status Code: 200
+body:
+{
+    "status": "success",
+    "message": "Quiz obtained successfully",
+    "data": {
+        "id": "",
+        "score" : "",
+        "type" : "number"
+        "questions": [
+            {
+                "question": "",
+                "urlImage": "",
+                "userAnswer": "",
+                "answers": [
+                    {
+                        "option": "A",
+                        "answer": "Paris",
+                        "correct": true
+                    },
+                    {
+                        "option": "B",
+                        "answer": "London",
+                        "correct": false
+                    },
+                    {
+                        "option": "C",
+                        "answer": "Berlin",
+                        "correct": false
+                    },
+                    {
+                        "option": "D",
+                        "answer": "Madrid",
+                        "correct": false
+                    }
+                ]
+            }
+        ],
+        "createdAt": "",
+        "updatedAt": ""
+    }
+}
 ```
 
 ```
@@ -332,6 +405,7 @@ body:
         "idUser : "",
         "id": "",
         "score" : "",
+        "type" : "number/alphabet"
         "questions": [
             {
                 "question": "",
@@ -425,6 +499,7 @@ body:
         {
         "_id": "",
         "score" : "",
+        "type" : "number/alphabet"
         "questions": [
           {
             "question": "",
@@ -500,6 +575,7 @@ body:
     {
     "_id": "",
     "score": "",
+    "type" : "number/alphabet"
     "questions": [
         {
             "question": "",
