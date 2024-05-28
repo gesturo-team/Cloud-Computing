@@ -402,7 +402,6 @@ body:
 
 ```
 {
-        "idUser : "",
         "id": "",
         "score" : "",
         "type" : "number/alphabet"
