@@ -455,7 +455,7 @@ body:
 Status Code:400
 body:
 {
-    "status" : "fail"
+    "status" : "success"
     "message": "Quiz failed to submit"
 }
 ```
