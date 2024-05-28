@@ -171,10 +171,6 @@ async function createQuiz(req, res) {
     };
 
     await quizRef.set(quiz);
-    console.log('Quiz successfully written to Firestore:', quiz);
-
-    const quizSnapshot = await quizRef.get();
-    const quizData = quizSnapshot.data();
 
     return res.status(200).json({
       status: 'success',
@@ -188,4 +184,80 @@ async function createQuiz(req, res) {
   }
 }
 
-export default { getQuizAlphabet, getQuizNumber, createQuiz };
+async function getQuizById(req, res) {
+  try {
+    const { id: idQuiz } = req.params;
+    const idUser = '';
+
+    const quizRef = db
+      .collection('users')
+      .doc('')
+      .collection('quiz')
+      .doc(idQuiz);
+
+    const quizSnapshot = await quizRef.get();
+    const quizData = quizSnapshot.data();
+
+    if (!quizSnapshot.exists) {
+      return res
+        .status(404)
+        .json({ status: 'fail', message: 'Quiz failed to obtain' });
+    }
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Quuiz obtain successfully',
+      data: quizData,
+    });
+  } catch (error) {
+    console.error('Error fetching quiz:', error);
+    return res
+      .status(500)
+      .json({ status: 'fail', message: 'Internal Server Error' });
+  }
+}
+
+async function getQuizHistory(req, res) {
+  try {
+    const { id: idUser } = req.params;
+
+    const userRef = db.collection('users').doc(idUser);
+    const userSnapshot = await userRef.get();
+
+    if (!userSnapshot.exists) {
+      return res
+        .status(404)
+        .json({ status: 'fail', message: 'User not found' });
+    }
+
+    const quizSnapshot = await userRef.collection('quiz').get();
+    const quizData = quizSnapshot.docs.map((doc) => doc.data());
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Quiz history obtain successfully',
+      data: {
+        id: userSnapshot.data().id,
+        email: userSnapshot.data().email,
+        firstName: userSnapshot.data().firstName,
+        lastName: userSnapshot.data().lastName,
+        createdAt: userSnapshot.data().createdAt,
+        updatedAt: userSnapshot.data().updatedAt,
+        quiz: [...quizData],
+      },
+    });
+  } catch (error) {
+    console.error('Error fetching quiz history:', error);
+    return res
+      .status(500)
+      .json({ status: 'fail', message: 'Internal Server Error' });
+  }
+}
+
+export default {
+  getQuizAlphabet,
+  getQuizNumber,
+  getQuizById,
+  createQuiz,
+  getQuizHistory,
+};

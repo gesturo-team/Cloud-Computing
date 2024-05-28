@@ -10,6 +10,8 @@ router.get('/', (req, res) => {
 // Quiz
 router.get('/quiz/alphabet', quizController.getQuizAlphabet);
 router.get('/quiz/number', quizController.getQuizNumber);
+router.get('/quiz/:id', quizController.getQuizById);
+router.get('/quiz/history/:id', quizController.getQuizHistory);
 router.post('/quiz', quizController.createQuiz);
 
 export default router;
