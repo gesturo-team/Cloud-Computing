@@ -106,7 +106,7 @@ body:
 Status Code: 200
 body:
 {
-    "status": "fail",
+    "status": "success",
     "message": "Logout successful"
 }
 ```
