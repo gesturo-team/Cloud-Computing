@@ -17,7 +17,7 @@ export default function auth(req, res, next) {
     } catch (error) {
         return res.status(403).json({ 
             status: 'fail',
-            message: 'Invalid token.'
+            message: 'Invalid token. Please login.'
         });
     }
 }
