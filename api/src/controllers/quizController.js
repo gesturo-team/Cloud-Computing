@@ -134,4 +134,58 @@ async function getQuizNumber(req, res) {
   }
 }
 
-export default { getQuizAlphabet, getQuizNumber };
+async function createQuiz(req, res) {
+  try {
+    const { questions, idUser, type } = req.body;
+
+    const userId = idUser;
+    const userRef = db.collection('users').doc(userId);
+    const userSnapshot = await userRef.get();
+
+    if (!Array.isArray(questions) || questions.length === 0) {
+      return res
+        .status(400)
+        .json({ status: 'fail', message: 'Quiz failed to submit' });
+    }
+
+    if (!userSnapshot.exists) {
+      console.error('User not found:', userId);
+      return res
+        .status(404)
+        .json({ status: 'fail', message: 'User not found' });
+    }
+
+    const quizRef = userRef.collection('quiz').doc();
+
+    const quiz = {
+      score: '',
+      type: type,
+      questions: questions.map((question) => ({
+        question: question.question,
+        urlImage: question.urlImage || '',
+        userAnswer: question.userAnswer || '',
+        answers: question.answers,
+      })),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+
+    await quizRef.set(quiz);
+    console.log('Quiz successfully written to Firestore:', quiz);
+
+    const quizSnapshot = await quizRef.get();
+    const quizData = quizSnapshot.data();
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Quiz inserted successfully',
+    });
+  } catch (error) {
+    console.error('Error inserting quiz:', error);
+    return res
+      .status(500)
+      .json({ status: 'fail', message: 'Internal Server Error' });
+  }
+}
+
+export default { getQuizAlphabet, getQuizNumber, createQuiz };
