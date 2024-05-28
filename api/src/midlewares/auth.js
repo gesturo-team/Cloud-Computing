@@ -12,7 +12,7 @@ export default function auth(req, res, next) {
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user_id = decoded;
+        req.user_id = decoded.id;
         next();
     } catch (error) {
         return res.status(403).json({ 
