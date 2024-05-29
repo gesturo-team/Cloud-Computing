@@ -197,7 +197,7 @@ async function createQuiz(req, res) {
 async function getQuizById(req, res) {
   try {
     const { id: idQuiz } = req.params;
-    const idUser = getUserId(req); // Assuming getUserId is a function that retrieves the user ID from the request
+    const idUser = getUserId(req);
 
     const quizRef = db
       .collection('users')
