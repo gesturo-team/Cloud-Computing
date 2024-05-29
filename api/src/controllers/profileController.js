@@ -5,19 +5,15 @@ async function getProfile(req, res) {
   try {
     const userId = req.user_id;
 
-    const token = req.cookies.token;
-    const user = jwt.verify(token, process.env.JWT_SECRET);
-    const idUser = user.id;
-
-    if (idUser !== userId) {
-      return res.status(403).json({
-        status: 'fail',
-        message: 'Forbidden.',
-      });
-    }
-
     const userRef = db.collection('users').doc(userId);
     const userData = await userRef.get();
+
+    if (!userData) {
+      return res.status(400).json({
+        status: 'fail',
+        message: 'User failed to obtain',
+      });
+    }
 
     return res.status(200).json({
       status: 'success',
@@ -31,6 +27,7 @@ async function getProfile(req, res) {
       },
     });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       status: 'fail',
       message: 'Internal server error.',
