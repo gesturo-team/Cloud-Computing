@@ -10,14 +10,6 @@ function getRandomSample(arr, n) {
     .slice(0, n);
 }
 
-function getUserId(req) {
-  const token = req.cookies.token;
-  const user = jwt.verify(token, process.env.JWT_SECRET);
-  const idUser = user.id;
-
-  return idUser;
-}
-
 async function getQuizAlphabet(req, res) {
   try {
     const dictionaryAlphabet = db.collection('dictionary').doc('alphabet');
@@ -148,7 +140,7 @@ async function createQuiz(req, res) {
   try {
     const { questions, type } = req.body;
 
-    const idUser = getUserId(req);
+    const idUser = req.user_id;
     const userRef = db.collection('users').doc(idUser);
     const userSnapshot = await userRef.get();
 
@@ -197,7 +189,7 @@ async function createQuiz(req, res) {
 async function getQuizById(req, res) {
   try {
     const { id: idQuiz } = req.params;
-    const idUser = getUserId(req);
+    const idUser = req.user_id;
 
     const quizRef = db
       .collection('users')
@@ -231,7 +223,7 @@ async function getQuizById(req, res) {
 
 async function getQuizHistory(req, res) {
   try {
-    const idUser = getUserId(req);
+    const idUser = req.user_id;
 
     const userRef = db.collection('users').doc(idUser);
     const user = await userRef.get();
