@@ -402,7 +402,6 @@ body:
 
 ```
 {
-        "idUser : "",
         "id": "",
         "score" : "",
         "type" : "number/alphabet"
@@ -455,7 +454,7 @@ body:
 Status Code:400
 body:
 {
-    "status" : "fail"
+    "status" : "success"
     "message": "Quiz failed to submit"
 }
 ```
@@ -476,7 +475,7 @@ body:
 
 - Auth : Recquired
 - Method : GET
-- URL : /quiz/history/{{ userId }}
+- URL : /quiz/history
 
 - Request:
 
