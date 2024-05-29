@@ -475,7 +475,7 @@ body:
 
 - Auth : Recquired
 - Method : GET
-- URL : /quiz/history/{{ userId }}
+- URL : /quiz/history
 
 - Request:
 

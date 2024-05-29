@@ -1,4 +1,6 @@
 import db from '../configs/database.js';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 function getRandomSample(arr, n) {
   return arr
@@ -6,6 +8,14 @@ function getRandomSample(arr, n) {
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value)
     .slice(0, n);
+}
+
+function getUserId(req) {
+  const token = req.cookies.token;
+  const user = jwt.verify(token, process.env.JWT_SECRET);
+  const idUser = user.id;
+
+  return idUser;
 }
 
 async function getQuizAlphabet(req, res) {
@@ -136,10 +146,10 @@ async function getQuizNumber(req, res) {
 
 async function createQuiz(req, res) {
   try {
-    const { questions, idUser, type } = req.body;
+    const { questions, type } = req.body;
 
-    const userId = idUser;
-    const userRef = db.collection('users').doc(userId);
+    const idUser = getUserId(req);
+    const userRef = db.collection('users').doc(idUser);
     const userSnapshot = await userRef.get();
 
     if (!Array.isArray(questions) || questions.length === 0) {
@@ -149,7 +159,7 @@ async function createQuiz(req, res) {
     }
 
     if (!userSnapshot.exists) {
-      console.error('User not found:', userId);
+      console.error('User not found:', idUser);
       return res
         .status(404)
         .json({ status: 'fail', message: 'User not found' });
@@ -187,27 +197,29 @@ async function createQuiz(req, res) {
 async function getQuizById(req, res) {
   try {
     const { id: idQuiz } = req.params;
-    const idUser = '';
+    const idUser = getUserId(req); // Assuming getUserId is a function that retrieves the user ID from the request
 
     const quizRef = db
       .collection('users')
-      .doc('')
+      .doc(idUser)
       .collection('quiz')
       .doc(idQuiz);
 
     const quizSnapshot = await quizRef.get();
-    const quizData = quizSnapshot.data();
-
     if (!quizSnapshot.exists) {
       return res
         .status(404)
-        .json({ status: 'fail', message: 'Quiz failed to obtain' });
+        .json({ status: 'fail', message: 'Quiz not found' });
     }
 
+    const quizData = quizSnapshot.data();
     return res.status(200).json({
       status: 'success',
-      message: 'Quuiz obtain successfully',
-      data: quizData,
+      message: 'Quiz obtained successfully',
+      data: {
+        id: idQuiz,
+        ...quizData,
+      },
     });
   } catch (error) {
     console.error('Error fetching quiz:', error);
@@ -219,30 +231,32 @@ async function getQuizById(req, res) {
 
 async function getQuizHistory(req, res) {
   try {
-    const { id: idUser } = req.params;
+    const idUser = getUserId(req);
 
     const userRef = db.collection('users').doc(idUser);
-    const userSnapshot = await userRef.get();
+    const user = await userRef.get();
 
-    if (!userSnapshot.exists) {
+    if (!user.exists) {
       return res
         .status(404)
         .json({ status: 'fail', message: 'User not found' });
     }
 
     const quizSnapshot = await userRef.collection('quiz').get();
-    const quizData = quizSnapshot.docs.map((doc) => doc.data());
-
+    const quizData = quizSnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
     return res.status(200).json({
       status: 'success',
       message: 'Quiz history obtain successfully',
       data: {
-        id: userSnapshot.data().id,
-        email: userSnapshot.data().email,
-        firstName: userSnapshot.data().firstName,
-        lastName: userSnapshot.data().lastName,
-        createdAt: userSnapshot.data().createdAt,
-        updatedAt: userSnapshot.data().updatedAt,
+        id: user.data().id,
+        email: user.data().email,
+        firstName: user.data().firstName,
+        lastName: user.data().lastName,
+        createdAt: user.data().createdAt,
+        updatedAt: user.data().updatedAt,
         quiz: [...quizData],
       },
     });
