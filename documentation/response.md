@@ -131,6 +131,51 @@ body:
 
 <br>
 
+## Profile
+
+- Auth : Required
+- Method :
+- URL : /profile
+
+- Respoonse:
+
+```
+Status Code: 200
+body:
+{
+    "status": "success",
+    "message": "Profile obtain successfuly"
+    "data": {
+        "id": "",
+        "fullName": "",
+        "firstName": "",
+        "lastName": "",
+        "email": "",
+        "createdAt": ""
+    }
+}
+```
+
+```
+Status Code: 400
+body:
+{
+    "status": "fail",
+    "message": "User failed to obtain"
+}
+```
+
+```
+Status Code: 500
+body:
+{
+    "status": "error",
+    "message": "Internal Server Error",
+}
+```
+
+<br>
+
 ## Dictionary Alphabet
 
 - Auth : Required
