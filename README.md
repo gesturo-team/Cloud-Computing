@@ -4,9 +4,13 @@
 
 <img src="documentation/architecture.png">
 
+<br>
+
 ## Firestore Database Structure
 
 <img src="documentation/firestore.png">
+
+<br>
 
 ## Tech Architecture
 
@@ -17,20 +21,25 @@
 - Tensorflow Lite
 - Firestore
 
+<br>
+
 ## Recap Endpoint Routes
 
-| Route                      | HTTP Method | Description             |
-| -------------------------- | ----------- | ----------------------- |
-| /login                     | POST        | Log in a user           |
-| /register                  | POST        | Register a new user     |
-| /logout                    | POST        | Log out a user          |
-| /dictionary/alphabet       | GET         | Get dictionary alphabet |
-| /dictionary/number         | GET         | Get dictionary number   |
-| /quiz/alphabet             | GET         | Get alphabet quiz       |
-| /quiz/number               | GET         | Get number quiz         |
-| /quiz                      | POST        | Submit a quiz           |
-| /quiz/history/{{ userId }} | GET         | Get user's quiz history |
-| /quiz/{{ quizId }}         | GET         | Get quiz details        |
+| Route                      | HTTP Method | Description             | Auth         |
+| -------------------------- | ----------- | ----------------------- | ------------ |
+| /login                     | POST        | Log in a user           | Not Required |
+| /register                  | POST        | Register a new user     | Not Required |
+| /logout                    | POST        | Log out a user          | Not Required |
+| /profile                   | GET         | Get user profile        | Required     |
+| /dictionary/alphabet       | GET         | Get dictionary alphabet | Required     |
+| /dictionary/number         | GET         | Get dictionary number   | Required     |
+| /quiz/alphabet             | GET         | Get alphabet quiz       | Required     |
+| /quiz/number               | GET         | Get number quiz         | Required     |
+| /quiz                      | POST        | Submit a quiz           | Required     |
+| /quiz/history/{{ userId }} | GET         | Get user's quiz history | Required     |
+| /quiz/{{ quizId }}         | GET         | Get quiz details        | Required     |
+
+<br>
 
 ## API Endpoint
 
@@ -140,7 +149,7 @@ body:
 Status Code: 200
 body:
 {
-    "status": "fail",
+    "status": "success",
     "message": "Logout successful"
 }
 ```
@@ -151,6 +160,51 @@ body:
 {
     "status": "fail",
     "message": "Logout failed"
+}
+```
+
+```
+Status Code: 500
+body:
+{
+    "status": "error",
+    "message": "Internal Server Error",
+}
+```
+
+<br>
+
+## Profile
+
+- Auth : Required
+- Method :
+- URL : /profile
+
+- Respoonse:
+
+```
+Status Code: 200
+body:
+{
+    "status": "success",
+    "message": "Profile obtain successfuly"
+    "data": {
+        "id": "",
+        "fullName": "",
+        "firstName": "",
+        "lastName": "",
+        "email": "",
+        "createdAt": ""
+    }
+}
+```
+
+```
+Status Code: 400
+body:
+{
+    "status": "fail",
+    "message": "User failed to obtain"
 }
 ```
 
