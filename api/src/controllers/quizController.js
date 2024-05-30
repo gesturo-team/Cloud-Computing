@@ -227,6 +227,7 @@ async function getQuizHistory(req, res) {
 
     const userRef = db.collection('users').doc(idUser);
     const user = await userRef.get();
+    const query = req.query;
 
     if (!user.exists) {
       return res
@@ -239,19 +240,47 @@ async function getQuizHistory(req, res) {
       id: doc.id,
       ...doc.data(),
     }));
-    return res.status(200).json({
-      status: 'success',
-      message: 'Quiz history obtain successfully',
-      data: {
-        id: user.data().id,
-        email: user.data().email,
-        firstName: user.data().firstName,
-        lastName: user.data().lastName,
-        createdAt: user.data().createdAt,
-        updatedAt: user.data().updatedAt,
-        quiz: [...quizData],
-      },
-    });
+
+    if (query.count) {
+      const count = parseInt(query.count, 10);
+      if (Number.isInteger(count)) {
+        const quizDataSort = quizData.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+
+        return res.status(200).json({
+          status: 'success',
+          message: 'Quiz history obtain successfully',
+          data: {
+            id: user.data().id,
+            email: user.data().email,
+            firstName: user.data().firstName,
+            lastName: user.data().lastName,
+            createdAt: user.data().createdAt,
+            updatedAt: user.data().updatedAt,
+            quiz: quizDataSort.slice(0, count),
+          },
+        });
+      }
+    } else {
+      const quizDataSort = quizData.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+
+      return res.status(200).json({
+        status: 'success',
+        message: 'Quiz history obtain successfully',
+        data: {
+          id: user.data().id,
+          email: user.data().email,
+          firstName: user.data().firstName,
+          lastName: user.data().lastName,
+          createdAt: user.data().createdAt,
+          updatedAt: user.data().updatedAt,
+          quiz: [...quizDataSort],
+        },
+      });
+    }
   } catch (error) {
     console.error('Error fetching quiz history:', error);
     return res
