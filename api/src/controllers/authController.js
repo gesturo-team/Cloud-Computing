@@ -5,13 +5,6 @@ import db from '../configs/database.js';
 async function register(req, res) {
   const { firstName, lastName, email, password } = req.body;
 
-  if (!firstName || !lastName || !email || !password) {
-    return res.status(400).json({
-      status: 'fail',
-      message: 'All fields are required.',
-    });
-  }
-
   try {
     const createdAt = new Date().toISOString();
     const updatedAt = createdAt;
@@ -53,13 +46,6 @@ async function register(req, res) {
 
 async function login(req, res) {
   const { email, password } = req.body;
-
-  if (!email || !password) {
-    return res.status(400).json({
-      status: 'fail',
-      message: 'All fields are required.',
-    });
-  }
 
   try {
     const userSnapshot = await db

@@ -4,7 +4,10 @@ import authController from '../controllers/authController.js';
 import dictionaryController from '../controllers/dictionaryController.js';
 import profileController from '../controllers/profileController.js';
 
-import auth from '../midlewares/auth.js';
+import auth from '../middlewares/auth.js';
+import { userRegisterValidationRules } from '../rules/userRegisterValidation.js';
+import { userLoginValidationRules } from '../rules/userLoginValidation.js';
+import { validate } from '../middlewares/validation.js';
 
 const router = express.Router();
 
@@ -20,8 +23,8 @@ router.get('/quiz/:id', auth, quizController.getQuizById);
 router.post('/quiz', auth, quizController.createQuiz);
 
 // Auth routes
-router.post('/register', authController.register);
-router.post('/login', authController.login);
+router.post('/register', userRegisterValidationRules(), validate, authController.register);
+router.post('/login',  userLoginValidationRules(), validate, authController.login);
 router.post('/logout', authController.logout);
 
 // Profile routes
