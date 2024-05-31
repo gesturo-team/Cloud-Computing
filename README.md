@@ -67,6 +67,12 @@ body:
 {
     "status": "success",
     "message": "Login successful",
+        "authResult": {
+        id: "123",
+        fullName: "John Doe",
+        email: "john.doe@example.com",
+        token: "token",
+      },
 }
 ```
 
