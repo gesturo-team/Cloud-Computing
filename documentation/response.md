@@ -68,11 +68,17 @@ body:
 
 ```
 
-Status Code: 201
+Status Code: 200
 body:
 {
     "status": "success",
     "message": "User registered successfully",
+    "authResult": {
+        id: "123",
+        fullName: "John Doe",
+        email: "john.doe@example.com",
+        token: "token",
+      }
 }
 ```
 

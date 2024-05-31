@@ -1,7 +1,6 @@
 import express from 'express';
 import router from './src/routes/route.js';
 import cookieParser from 'cookie-parser';
-import cors from 'cors';
 import { config } from 'dotenv';
 
 const env = config().parsed;
@@ -10,7 +9,6 @@ const port = env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(cors());
 app.use(express.json());
 
 app.use(router);
