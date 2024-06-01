@@ -4,13 +4,9 @@
 
 <img src="documentation/architecture.png">
 
-<br>
-
 ## Firestore Database Structure
 
 <img src="documentation/firestore.png">
-
-<br>
 
 ## Tech Architecture
 
@@ -20,8 +16,6 @@
 - Cloud Storage
 - Tensorflow Lite
 - Firestore
-
-<br>
 
 ## Recap Endpoint Routes
 
@@ -39,8 +33,6 @@
 | /quiz/history        | GET         | Get all user quiz history   | Required     |
 | /quiz/history?count  | GET         | Get count user quiz history | Required     |
 | /quiz/{{ quizId }}   | GET         | Get quiz details            | Required     |
-
-<br>
 
 ## API Endpoint
 
