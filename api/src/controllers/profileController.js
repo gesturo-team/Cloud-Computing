@@ -10,13 +10,13 @@ async function getProfile(req, res) {
 
     if (!userData) {
       return res.status(400).json({
-        status: 'fail',
+        success: false,
         message: 'User failed to obtain',
       });
     }
 
     return res.status(200).json({
-      status: 'success',
+      success: true,
       data: {
         id: userData.id,
         fullName: `${userData.data().firstName} ${userData.data().lastName}`,
@@ -27,10 +27,10 @@ async function getProfile(req, res) {
       },
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
-      status: 'fail',
+      success: false,
       message: 'Internal server error.',
+      error: error.message,
     });
   }
 }

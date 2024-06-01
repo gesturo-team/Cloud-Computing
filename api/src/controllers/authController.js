@@ -15,7 +15,7 @@ async function register(req, res) {
 
     if (!existingEmailSnapshot.empty) {
       return res.status(400).json({
-        status: 'fail',
+        success: false,
         message: 'Email already exists.',
       });
     }
@@ -32,12 +32,12 @@ async function register(req, res) {
 
     await db.collection('users').add(newUser);
     return res.status(201).json({
-      status: 'success',
+      success: true,
       message: 'User registered successfully.',
     });
   } catch (error) {
     return res.status(500).json({
-      status: 'fail',
+      success: false,
       message: 'Internal server error.',
       error: error.message,
     });
@@ -55,7 +55,7 @@ async function login(req, res) {
 
     if (userSnapshot.empty) {
       return res.status(400).json({
-        status: 'fail',
+        success: false,
         message: 'Invalid email or password.',
       });
     }
@@ -67,7 +67,7 @@ async function login(req, res) {
 
     if (!validPassword) {
       return res.status(400).json({
-        status: 'fail',
+        success: false,
         message: 'Invalid email or password.',
       });
     }
@@ -77,7 +77,7 @@ async function login(req, res) {
     });
     res.cookie('token', token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
     return res.status(200).json({
-      status: 'success',
+      success: true,
       message: 'User logged in successfully.',
       authResult: {
         id: userDoc.id,
@@ -88,7 +88,7 @@ async function login(req, res) {
     });
   } catch (error) {
     return res.status(500).json({
-      status: 'fail',
+      success: false,
       message: 'Internal server error.',
       error: error.message,
     });
@@ -99,12 +99,12 @@ async function logout(req, res) {
   try {
     res.clearCookie('token');
     return res.status(200).json({
-      status: 'success',
+      success: true,
       message: 'User logged out successfully.',
     });
   } catch (error) {
     return res.status(500).json({
-      status: 'fail',
+      success: false,
       message: 'Internal server error.',
       error: error.message,
     });

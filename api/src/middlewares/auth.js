@@ -5,7 +5,7 @@ export default function auth(req, res, next) {
 
   if (!token) {
     return res.status(401).json({
-      status: 'fail',
+      success: false,
       message: 'Unauthorized. Please login.',
     });
   }
@@ -16,7 +16,7 @@ export default function auth(req, res, next) {
     next();
   } catch (error) {
     return res.status(403).json({
-      status: 'fail',
+      success: false,
       message: 'Invalid token. Please login.',
     });
   }

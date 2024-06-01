@@ -21,7 +21,7 @@
 Status Code: 200
 body:
 {
-    "status": "success",
+    "success": true,
     "message": "Login successful",
 }
 ```
@@ -30,7 +30,7 @@ body:
 Status Code: 400
 body:
 {
-    "status": "fail",
+    "success": false,
     "message": "Invalid email or password"
 }
 ```
@@ -39,7 +39,7 @@ body:
 Status Code: 500
 body:
 {
-    "status": "error",
+    "success": false,
     "message": "Internal Server Error",
 }
 ```
@@ -71,7 +71,7 @@ body:
 Status Code: 200
 body:
 {
-    "status": "success",
+    "success": true,
     "message": "User registered successfully",
     "authResult": {
         id: "123",
@@ -86,7 +86,7 @@ body:
 Status Code: 400
 body:
 {
-    "status": "fail",
+    "success": false,
     "message": "Register failed"
 }
 ```
@@ -95,7 +95,7 @@ body:
 Status Code: 500
 body:
 {
-    "status": "error",
+    "success": false,
     "message": "Internal Server Error",
 }
 ```
@@ -112,7 +112,7 @@ body:
 Status Code: 200
 body:
 {
-    "status": "success",
+    "success": true,
     "message": "Logout successful"
 }
 ```
@@ -121,7 +121,7 @@ body:
 Status Code: 400
 body:
 {
-    "status": "fail",
+    "success": false,
     "message": "Logout failed"
 }
 ```
@@ -130,7 +130,7 @@ body:
 Status Code: 500
 body:
 {
-    "status": "error",
+    "success": false,
     "message": "Internal Server Error",
 }
 ```
@@ -149,7 +149,7 @@ body:
 Status Code: 200
 body:
 {
-    "status": "success",
+    "success": true,
     "message": "Profile obtain successfuly"
     "data": {
         "id": "",
@@ -166,7 +166,7 @@ body:
 Status Code: 400
 body:
 {
-    "status": "fail",
+    "success": false,
     "message": "User failed to obtain"
 }
 ```
@@ -175,7 +175,7 @@ body:
 Status Code: 500
 body:
 {
-    "status": "error",
+    "success": false,
     "message": "Internal Server Error",
 }
 ```
@@ -194,7 +194,7 @@ body:
 Status Code: 200
 body:
 {
-    "status": "success",
+    "success": true,
     "message": "Dictionary alphabet obtain succesfully",
     "data": {
         "_id": "",
@@ -223,7 +223,7 @@ body:
 Status Code:400
 body:
 {
-    "status": "success",
+    "success": true,
     "message": "Dictionary failed to obtain",
 }
 ```
@@ -232,7 +232,7 @@ body:
 Status Code: 500
 body:
 {
-    "status": "error",
+    "success": false,
     "message": "Internal Server Error",
 }
 
@@ -252,7 +252,7 @@ body:
 Status Code: 200
 body:
 {
-    "status": "success",
+    "success": true,
     "message": "Dictionary number obtain succesfully",
     "data": {
         "_id": "",
@@ -281,7 +281,7 @@ body:
 Status Code:400
 body:
 {
-    "status": "success",
+    "success": true,
     "message": "Dictionary failed to obtain",
 }
 ```
@@ -290,7 +290,7 @@ body:
 Status Code: 500
 body:
 {
-    "status": "error",
+    "success": false,
     "message": "Internal Server Error",
 }
 ```
@@ -309,7 +309,7 @@ body:
 Status Code: 200
 body:
 {
-    "status": "success",
+    "success": true,
     "message": "Quiz obtained successfully",
     "data": {
         "id": "",
@@ -354,7 +354,7 @@ body:
 Status Code:400
 body:
 {
-    "status" : "fail"
+    "success" : false
     "message": "Quiz failed to obtain"
 }
 ```
@@ -363,7 +363,7 @@ body:
 Status Code: 500
 body:
 {
-    "status": "error",
+    "success": false,
     "message": "Internal Server Error",
 }
 ```
@@ -382,7 +382,7 @@ body:
 Status Code: 200
 body:
 {
-    "status": "success",
+    "success": true,
     "message": "Quiz obtained successfully",
     "data": {
         "id": "",
@@ -427,7 +427,7 @@ body:
 Status Code:400
 body:
 {
-    "status" : "fail"
+    "success" : false
     "message": "Quiz failed to obtain"
 }
 ```
@@ -436,7 +436,7 @@ body:
 Status Code: 500
 body:
 {
-    "status": "error",
+    "success": false,
     "message": "Internal Server Error",
 }
 ```
@@ -496,7 +496,7 @@ body:
 Status Code:201
 body:
 {
-    "status" : "fail"
+    "success" : false
     "message": "Quiz submited successfully"
 }
 ```
@@ -505,7 +505,7 @@ body:
 Status Code:400
 body:
 {
-    "status" : "success"
+    "success" : true
     "message": "Quiz failed to submit"
 }
 ```
@@ -514,7 +514,7 @@ body:
 Status Code: 500
 body:
 {
-    "status": "error",
+    "success": false,
     "message": "Internal Server Error",
 }
 
@@ -536,7 +536,7 @@ body:
 Status Code: 200
 body:
 {
-    "status" : "success"
+    "success" : true
     "message": "Quiz history obtain successfully"
     "data" : {
     "_id": "",
@@ -591,7 +591,7 @@ body:
 Status Code:400
 body:
 {
-    "status" : "fail"
+    "success" : false
     "message": "Quiz failed to obtain"
 }
 ```
@@ -600,7 +600,7 @@ body:
 Status Code: 500
 body:
 {
-    "status": "error",
+    "success": false,
     "message": "Internal Server Error",
 }
 ```
@@ -619,7 +619,7 @@ body:
 Status Code: 201
 body:
 {
-    "status" : "success"
+    "success" : true
     "message" : "Quiz obtain succesfully"
     "data" :
     {
@@ -665,7 +665,7 @@ body:
 Status Code:400
 body:
 {
-    "status" : "fail"
+    "success" : false
     "message": "Quiz failed to obtain"
 }
 ```
@@ -674,7 +674,7 @@ body:
 Status Code: 500
 body:
 {
-    "status": "error",
+    "success": false,
     "message": "Internal Server Error",
 }
 ```
