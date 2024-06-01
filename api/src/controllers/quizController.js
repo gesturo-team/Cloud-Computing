@@ -55,20 +55,21 @@ async function getQuizAlphabet(req, res) {
       };
 
       return res.status(200).json({
-        status: 'success',
+        success: true,
         data: data,
       });
     } else {
       return res.status(400).json({
-        status: 'fail',
+        success: false,
         message: 'Quiz failed to obtain',
       });
     }
   } catch (error) {
     console.error(error);
     return res.status(500).json({
-      status: 'error',
+      status: false,
       message: 'Internal Server Error',
+      error: error.message,
     });
   }
 }
@@ -118,20 +119,21 @@ async function getQuizNumber(req, res) {
       };
 
       return res.status(200).json({
-        status: 'success',
+        success: true,
         data: data,
       });
     } else {
       return res.status(400).json({
-        status: 'fail',
+        success: false,
         message: 'Quiz failed to obtain',
       });
     }
   } catch (error) {
     console.error(error);
     return res.status(500).json({
-      status: 'error',
+      status: false,
       message: 'Internal Server Error',
+      error: error.message,
     });
   }
 }
@@ -147,14 +149,14 @@ async function createQuiz(req, res) {
     if (!Array.isArray(questions) || questions.length === 0) {
       return res
         .status(400)
-        .json({ status: 'fail', message: 'Quiz failed to submit' });
+        .json({ success: false, message: 'Quiz failed to submit' });
     }
 
     if (!userSnapshot.exists) {
       console.error('User not found:', idUser);
       return res
         .status(404)
-        .json({ status: 'fail', message: 'User not found' });
+        .json({ success: false, message: 'User not found' });
     }
 
     const quizRef = userRef.collection('quiz').doc();
@@ -175,14 +177,16 @@ async function createQuiz(req, res) {
     await quizRef.set(quiz);
 
     return res.status(200).json({
-      status: 'success',
+      success: true,
       message: 'Quiz inserted successfully',
     });
   } catch (error) {
     console.error('Error inserting quiz:', error);
-    return res
-      .status(500)
-      .json({ status: 'fail', message: 'Internal Server Error' });
+    return res.status(500).json({
+      success: false,
+      message: 'Internal Server Error',
+      error: error.message,
+    });
   }
 }
 
@@ -201,12 +205,12 @@ async function getQuizById(req, res) {
     if (!quizSnapshot.exists) {
       return res
         .status(404)
-        .json({ status: 'fail', message: 'Quiz not found' });
+        .json({ success: false, message: 'Quiz not found' });
     }
 
     const quizData = quizSnapshot.data();
     return res.status(200).json({
-      status: 'success',
+      success: true,
       message: 'Quiz obtained successfully',
       data: {
         id: idQuiz,
@@ -215,9 +219,11 @@ async function getQuizById(req, res) {
     });
   } catch (error) {
     console.error('Error fetching quiz:', error);
-    return res
-      .status(500)
-      .json({ status: 'fail', message: 'Internal Server Error' });
+    return res.status(500).json({
+      success: false,
+      message: 'Internal Server Error',
+      error: error.message,
+    });
   }
 }
 
@@ -232,7 +238,7 @@ async function getQuizHistory(req, res) {
     if (!user.exists) {
       return res
         .status(404)
-        .json({ status: 'fail', message: 'User not found' });
+        .json({ success: false, message: 'User not found' });
     }
 
     const quizSnapshot = await userRef.collection('quiz').get();
@@ -249,7 +255,7 @@ async function getQuizHistory(req, res) {
         );
 
         return res.status(200).json({
-          status: 'success',
+          success: true,
           message: 'Quiz history obtain successfully',
           data: {
             id: user.data().id,
@@ -268,7 +274,7 @@ async function getQuizHistory(req, res) {
       );
 
       return res.status(200).json({
-        status: 'success',
+        success: true,
         message: 'Quiz history obtain successfully',
         data: {
           id: user.data().id,
@@ -283,9 +289,11 @@ async function getQuizHistory(req, res) {
     }
   } catch (error) {
     console.error('Error fetching quiz history:', error);
-    return res
-      .status(500)
-      .json({ status: 'fail', message: 'Internal Server Error' });
+    return res.status(500).json({
+      success: false,
+      message: 'Internal Server Error',
+      error: error.message,
+    });
   }
 }
 
