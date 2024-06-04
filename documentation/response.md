@@ -62,13 +62,11 @@ body:
     "email": "john.doe@example.com",
     "password": "securepassword"
 }
-
 ```
 
-- Respoonse:
+- Response:
 
 ```
-
 Status Code: 200
 body:
 {
@@ -110,7 +108,7 @@ body:
 - URL : `/logout`
 - Headers : `Authorization : Bearer <token>`
 
-- Respoonse:
+- Response:
   <br>
 
 ```
@@ -197,7 +195,7 @@ body:
 - Headers : `Authorization : Bearer <token>`
   <br>
 
-- Respoonse:
+- Response:
 
 ```
 Status Code: 200
@@ -316,7 +314,7 @@ body:
 - Headers : `Authorization : Bearer <token>`
   <br>
 
-- Respoonse:
+- Response:
 
 ```
 Status Code: 200
@@ -391,7 +389,7 @@ body:
 - Headers : `Authorization : Bearer <token>`
   <br>
 
-- Respoonse:
+- Response:
 
 ```
 Status Code: 200
@@ -507,7 +505,7 @@ body:
     }
 ```
 
-- Respoonse:
+- Response:
 
 ```
 Status Code:201
@@ -548,7 +546,7 @@ body:
 - Parameters : count (optional): Gets the number of historical entries (0-9999).
   <br>
 
-- Respoonse:
+- Response:
 
 ```
 Status Code: 200
@@ -633,7 +631,7 @@ body:
 - Headers : `Authorization : Bearer <token>`
   <br>
 
-- Respoonse:
+- Response:
 
 ```
 Status Code: 201
