@@ -99,7 +99,7 @@ async function logout(req, res) {
     return res.status(200).json({
       success: true,
       message: 'User logged out successfully.',
-      tokken: null,
+      token: null,
     });
   } catch (error) {
     return res.status(500).json({
