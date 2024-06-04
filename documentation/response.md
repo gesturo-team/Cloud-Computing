@@ -3,9 +3,9 @@
 ## Login
 
 - Auth : Not Required
-- Method : POST
-- URL : /login
-
+- Method : `POST`
+- URL : `/login`
+  <br>
 - Request:
 
 ```
@@ -49,8 +49,9 @@ body:
 ## Register
 
 - Auth : Not Required
-- Method : POST
-- URL : /register
+- Method : `POST`
+- URL : `/register`
+  <br>
 
 - Request:
 
@@ -100,13 +101,17 @@ body:
 }
 ```
 
+<br>
+
 ## Logout
 
 - Auth : Required
-- Method : POST
-- URL : /logout
+- Method : `POST`
+- URL : `/logout`
+- Headers : `Authorization : Bearer <token>`
 
 - Respoonse:
+  <br>
 
 ```
 Status Code: 200
@@ -141,9 +146,11 @@ body:
 
 - Auth : Required
 - Method :
-- URL : /profile
+- URL : `/profile`
+- Headers : `Authorization : Bearer <token>`
+  <br>
 
-- Respoonse:
+- Response:
 
 ```
 Status Code: 200
@@ -185,8 +192,10 @@ body:
 ## Dictionary Alphabet
 
 - Auth : Required
-- Method : GET
-- URL : /dictionary/alphabet
+- Method : `GET`
+- URL : `/dictionary/alphabet`
+- Headers : `Authorization : Bearer <token>`
+  <br>
 
 - Respoonse:
 
@@ -243,8 +252,10 @@ body:
 ## Dictionary Number
 
 - Auth : Required
-- Method : GET
-- URL : /dictionary/number
+- Method : `GET`
+- URL : `/dictionary/number`
+- Headers : `Authorization : Bearer <token>`
+  <br>
 
 - Response:
 
@@ -300,8 +311,10 @@ body:
 ## Get Quiz Alphabet
 
 - Auth : Required
-- Method : GET
-- URL : /quiz/alphabet
+- Method : `GET`
+- URL : `/quiz/alphabet`
+- Headers : `Authorization : Bearer <token>`
+  <br>
 
 - Respoonse:
 
@@ -373,8 +386,10 @@ body:
 ## Get Quiz Number
 
 - Auth : Required
-- Method : GET
-- URL : /quiz/number
+- Method : `GET`
+- URL : `/quiz/number`
+- Headers : `Authorization : Bearer <token>`
+  <br>
 
 - Respoonse:
 
@@ -443,11 +458,13 @@ body:
 
 <br>
 
-## Post Quiz
+## `Post` Quiz
 
 - Auth : Required
-- Method : POST
-- URL : /quiz
+- Method : `POST`
+- URL : `/quiz`
+- Headers : `Authorization : Bearer <token>`
+  <br>
 
 - Request:
 
@@ -525,10 +542,11 @@ body:
 ## Get Quiz History User
 
 - Auth : Recquired
-- Method : GET
-- URL : /quiz/history
-
-- Request:
+- Method : `GET`
+- URL : `/quiz/history`
+- Headers : `Authorization : Bearer <token>`
+- Parameters : count (optional): Gets the number of historical entries (0-9999).
+  <br>
 
 - Respoonse:
 
@@ -610,8 +628,10 @@ body:
 ## Get Quiz Detail
 
 - Auth : Required
-- Method : GET
-- URL : /quiz/{{ quizId }}
+- Method : `GET`
+- URL : `/quiz/{{ quizId }}`
+- Headers : `Authorization : Bearer <token>`
+  <br>
 
 - Respoonse:
 
