@@ -27,7 +27,7 @@ async function alphabet(req, res) {
       };
     });
 
-    wordList.sort((a, b) => a.value - b.value);
+    wordList.sort((a, b) => a.value.localeCompare(b.value));
 
     return res.status(200).json({
       success: true,
