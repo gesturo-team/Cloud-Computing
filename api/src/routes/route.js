@@ -39,7 +39,7 @@ router.post(
   validate,
   authController.login
 );
-router.post('/logout', authController.logout);
+router.post('/logout', auth, authController.logout);
 
 // Profile routes
 router.get('/profile', auth, profileController.getProfile);
