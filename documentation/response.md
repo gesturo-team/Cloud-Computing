@@ -458,7 +458,7 @@ body:
 
 <br>
 
-## `Post` Quiz
+## Post Quiz
 
 - Auth : Required
 - Method : `POST`
@@ -470,41 +470,244 @@ body:
 
 ```
 {
-        "id": "",
-        "score" : "",
-        "type" : "number/alphabet"
+    "id": "",
+    "score": "",
+        "type": "alphabet",
         "questions": [
             {
-                "question": "",
+                "question": "v",
                 "urlImage": "",
-                "userAnswer": "",
+                "userAnswer": "q",
                 "answers": [
                     {
-                        "option": "A",
-                        "answer": "Paris",
-                        "correct": true
+                        "value": "r",
+                        "isCorrect": false
                     },
                     {
-                        "option": "B",
-                        "answer": "London",
-                        "correct": false
+                        "value": "q",
+                        "isCorrect": false
                     },
                     {
-                        "option": "C",
-                        "answer": "Berlin",
-                        "correct": false
+                        "value": "f",
+                        "isCorrect": false
                     },
                     {
-                        "option": "D",
-                        "answer": "Madrid",
-                        "correct": false
+                        "value": "v",
+                        "isCorrect": true
+                    }
+                ]
+            },
+            {
+                "question": "c",
+                "urlImage": "",
+                "userAnswer": "c",
+                "answers": [
+                    {
+                        "value": "f",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "h",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "n",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "c",
+                        "isCorrect": true
+                    }
+                ]
+            },
+            {
+                "question": "j",
+                "urlImage": "",
+                "userAnswer": "y",
+                "answers": [
+                    {
+                        "value": "j",
+                        "isCorrect": true
+                    },
+                    {
+                        "value": "u",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "y",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "f",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "r",
+                "urlImage": "",
+                "userAnswer": "r",
+                "answers": [
+                    {
+                        "value": "h",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "c",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "r",
+                        "isCorrect": true
+                    },
+                    {
+                        "value": "o",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "y",
+                "urlImage": "",
+                "userAnswer": "y",
+                "answers": [
+                    {
+                        "value": "x",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "k",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "c",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "y",
+                        "isCorrect": true
+                    }
+                ]
+            },
+            {
+                "question": "a",
+                "urlImage": "",
+                "userAnswer": "a",
+                "answers": [
+                    {
+                        "value": "g",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "a",
+                        "isCorrect": true
+                    },
+                    {
+                        "value": "q",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "j",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "t",
+                "urlImage": "",
+                "userAnswer": "t",
+                "answers": [
+                    {
+                        "value": "t",
+                        "isCorrect": true
+                    },
+                    {
+                        "value": "l",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "p",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "c",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "u",
+                "urlImage": "",
+                "userAnswer": "u",
+                "answers": [
+                    {
+                        "value": "u",
+                        "isCorrect": true
+                    },
+                    {
+                        "value": "m",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "h",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "o",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "d",
+                "urlImage": "",
+                "userAnswer": "d",
+                "answers": [
+                    {
+                        "value": "r",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "d",
+                        "isCorrect": true
+                    },
+                    {
+                        "value": "w",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "z",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "o",
+                "urlImage": "",
+                "userAnswer": "o",
+                "answers": [
+                    {
+                        "value": "w",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "z",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "f",
+                        "isCorrect": false
+                    },
+                    {
+                        "value": "o",
+                        "isCorrect": true
                     }
                 ]
             }
         ],
-        "createdAt": "",
-        "updatedAt": ""
-    }
+    "createdAt": "",
+    "updatedAt": ""
+}
 ```
 
 - Respoonse:
