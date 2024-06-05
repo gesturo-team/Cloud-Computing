@@ -133,7 +133,8 @@ Status Code: 400
 body:
 {
     "success": false,
-    "message": "Logout failed"
+    "message": "Logout failed",
+    "token": null
 }
 ```
 
