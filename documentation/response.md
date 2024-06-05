@@ -485,7 +485,6 @@ body:
         "questions":[
             {
                 "question": "v",
-                "correct": false,
                 "urlImage": "",
                 "userAnswer": "q",
                 "answers": [
@@ -509,7 +508,6 @@ body:
             },
             {
                 "question": "c",
-                "correct": true,
                 "urlImage": "",
                 "userAnswer": "c",
                 "answers": [
@@ -533,7 +531,6 @@ body:
             },
             {
                 "question": "j",
-                "correct": false,
                 "urlImage": "",
                 "userAnswer": "y",
                 "answers": [
@@ -557,7 +554,6 @@ body:
             },
             {
                 "question": "r",
-                "correct": true,
                 "urlImage": "",
                 "userAnswer": "r",
                 "answers": [
@@ -581,7 +577,6 @@ body:
             },
             {
                 "question": "y",
-                "correct": true,
                 "urlImage": "",
                 "userAnswer": "y",
                 "answers": [
@@ -605,7 +600,6 @@ body:
             },
             {
                 "question": "a",
-                "correct": true,
                 "urlImage": "",
                 "userAnswer": "a",
                 "answers": [
@@ -629,7 +623,6 @@ body:
             },
             {
                 "question": "t",
-                "correct": true,
                 "urlImage": "",
                 "userAnswer": "t",
                 "answers": [
@@ -653,7 +646,6 @@ body:
             },
             {
                 "question": "u",
-                "correct": true,
                 "urlImage": "",
                 "userAnswer": "u",
                 "answers": [
@@ -677,7 +669,6 @@ body:
             },
             {
                 "question": "d",
-                "correct": true,
                 "urlImage": "",
                 "userAnswer": "d",
                 "answers": [
@@ -701,7 +692,6 @@ body:
             },
             {
                 "question": "o",
-                "correct": true,
                 "urlImage": "",
                 "userAnswer": "o",
                 "answers": [
