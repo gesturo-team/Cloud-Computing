@@ -338,6 +338,7 @@ body:
         "questions": [
             {
                 "question": "",
+                "correct": false,
                 "urlImage": "",
                 "userAnswer": "",
                 "answers": [
@@ -413,6 +414,7 @@ body:
         "questions": [
             {
                 "question": "",
+                "correct": false,
                 "urlImage": "",
                 "userAnswer": "",
                 "answers": [
@@ -480,234 +482,244 @@ body:
     "id": "",
     "score": "",
         "type": "alphabet",
-        "questions": [
+        "questions":[
             {
                 "question": "v",
+                "correct": false,
                 "urlImage": "",
                 "userAnswer": "q",
                 "answers": [
                     {
                         "value": "r",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "q",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "f",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "v",
-                        "isCorrect": true
+                        "correct": true
                     }
                 ]
             },
             {
                 "question": "c",
+                "correct": true,
                 "urlImage": "",
                 "userAnswer": "c",
                 "answers": [
                     {
                         "value": "f",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "h",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "n",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "c",
-                        "isCorrect": true
+                        "correct": true
                     }
                 ]
             },
             {
                 "question": "j",
+                "correct": false,
                 "urlImage": "",
                 "userAnswer": "y",
                 "answers": [
                     {
                         "value": "j",
-                        "isCorrect": true
+                        "correct": true
                     },
                     {
                         "value": "u",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "y",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "f",
-                        "isCorrect": false
+                        "correct": false
                     }
                 ]
             },
             {
                 "question": "r",
+                "correct": true,
                 "urlImage": "",
                 "userAnswer": "r",
                 "answers": [
                     {
                         "value": "h",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "c",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "r",
-                        "isCorrect": true
+                        "correct": true
                     },
                     {
                         "value": "o",
-                        "isCorrect": false
+                        "correct": false
                     }
                 ]
             },
             {
                 "question": "y",
+                "correct": true,
                 "urlImage": "",
                 "userAnswer": "y",
                 "answers": [
                     {
                         "value": "x",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "k",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "c",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "y",
-                        "isCorrect": true
+                        "correct": true
                     }
                 ]
             },
             {
                 "question": "a",
+                "correct": true,
                 "urlImage": "",
                 "userAnswer": "a",
                 "answers": [
                     {
                         "value": "g",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "a",
-                        "isCorrect": true
+                        "correct": true
                     },
                     {
                         "value": "q",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "j",
-                        "isCorrect": false
+                        "correct": false
                     }
                 ]
             },
             {
                 "question": "t",
+                "correct": true,
                 "urlImage": "",
                 "userAnswer": "t",
                 "answers": [
                     {
                         "value": "t",
-                        "isCorrect": true
+                        "correct": true
                     },
                     {
                         "value": "l",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "p",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "c",
-                        "isCorrect": false
+                        "correct": false
                     }
                 ]
             },
             {
                 "question": "u",
+                "correct": true,
                 "urlImage": "",
                 "userAnswer": "u",
                 "answers": [
                     {
                         "value": "u",
-                        "isCorrect": true
+                        "correct": true
                     },
                     {
                         "value": "m",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "h",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "o",
-                        "isCorrect": false
+                        "correct": false
                     }
                 ]
             },
             {
                 "question": "d",
+                "correct": true,
                 "urlImage": "",
                 "userAnswer": "d",
                 "answers": [
                     {
                         "value": "r",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "d",
-                        "isCorrect": true
+                        "correct": true
                     },
                     {
                         "value": "w",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "z",
-                        "isCorrect": false
+                        "correct": false
                     }
                 ]
             },
             {
                 "question": "o",
+                "correct": true,
                 "urlImage": "",
                 "userAnswer": "o",
                 "answers": [
                     {
                         "value": "w",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "z",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "f",
-                        "isCorrect": false
+                        "correct": false
                     },
                     {
                         "value": "o",
-                        "isCorrect": true
+                        "correct": true
                     }
                 ]
             }
@@ -781,6 +793,7 @@ body:
         "questions": [
           {
             "question": "",
+            "correct": false,
             "urlImage": "",
             "userAnswer": "",
             "answers": [

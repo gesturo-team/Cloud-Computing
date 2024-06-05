@@ -20,6 +20,7 @@
           {
             "question": "",
             "urlImage": "",
+            "correct": true/false,
             "userAnswer": "",
             "answers": [
               {

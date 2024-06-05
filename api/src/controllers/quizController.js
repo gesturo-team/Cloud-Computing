@@ -29,16 +29,17 @@ async function getQuizAlphabet(req, res) {
         3
       ).map((item) => ({
         value: item.value,
-        isCorrect: false,
+        correct: false,
       }));
 
       const answers = [
-        { value: data.value, isCorrect: true },
+        { value: data.value, correct: true },
         ...incorrectAnswers,
       ].sort(() => 0.5 - Math.random());
 
       return {
         question: data.value,
+        correct: false,
         urlImage: data.urlImage,
         userAnswer: '',
         answers: answers,
@@ -93,16 +94,17 @@ async function getQuizNumber(req, res) {
         3
       ).map((item) => ({
         value: item.value,
-        isCorrect: false,
+        correct: false,
       }));
 
       const answers = [
-        { value: data.value, isCorrect: true },
+        { value: data.value, correct: true },
         ...incorrectAnswers,
       ].sort(() => 0.5 - Math.random());
 
       return {
         question: data.value,
+        correct: false,
         urlImage: data.urlImage,
         userAnswer: '',
         answers: answers,
@@ -141,7 +143,6 @@ async function getQuizNumber(req, res) {
 async function createQuiz(req, res) {
   try {
     const { questions, type } = req.body;
-
     const idUser = req.user_id;
     const userRef = db.collection('users').doc(idUser);
     const userSnapshot = await userRef.get();
@@ -160,24 +161,22 @@ async function createQuiz(req, res) {
     }
 
     const quizRef = userRef.collection('quiz').doc();
-
     let correctAnswersCount = 0;
 
     const quizQuestions = questions.map((question) => {
-      const isCorrect = question.answers.some(
-        (answer) => answer.isCorrect && answer.value === question.userAnswer
+      const correct = question.answers.some(
+        (answer) => answer.correct && answer.value === question.userAnswer
       );
-
-      if (isCorrect) {
+      if (correct) {
         correctAnswersCount += 1;
       }
 
       return {
         question: question.question,
+        correct: correct,
         urlImage: question.urlImage || '',
         userAnswer: question.userAnswer || '',
         answers: question.answers,
-        isCorrect,
       };
     });
 
@@ -196,6 +195,7 @@ async function createQuiz(req, res) {
     return res.status(200).json({
       success: true,
       message: 'Quiz inserted successfully',
+      quiz,
     });
   } catch (error) {
     console.error('Error inserting quiz:', error);
