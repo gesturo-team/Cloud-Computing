@@ -306,6 +306,51 @@ body:
 
 <br>
 
+## Dictionary Detail
+
+- Auth : Required
+- Method : `GET`
+- URL : `/dictionary/{{ type }}/{{ word }}`
+- Headers : `Authorization : Bearer <token>`
+  <br>
+
+- Response:
+
+```
+Status Code: 200
+body:
+{
+    "success": true,
+    "message": "Dictionary detail obtain succesfully",
+    "data": {
+        "_id": "",
+        "value": "",
+        "urlImage": "",
+        "description": ""
+    }
+}
+```
+
+```
+Status Code:400
+body:
+{
+    "success": false,
+    "message": "Dictionary detail failed to obtain",
+}
+```
+
+```
+Status Code: 500
+body:
+{
+    "success": false,
+    "message": "Internal Server Error",
+}
+```
+
+<br>
+
 ## Get Quiz Alphabet
 
 - Auth : Required
