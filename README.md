@@ -23,7 +23,7 @@
 | ----------------------------------| ----------- | --------------------------- | ------------ |
 | /login                            | POST        | Log in a user               | Not Required |
 | /register                         | POST        | Register a new user         | Not Required |
-| /logout                           | POST        | Log out a user              | Not Required |
+| /logout                           | POST        | Log out a user              | Required     |
 | /profile                          | GET         | Get user profile            | Required     |
 | /dictionary/alphabet              | GET         | Get dictionary alphabet     | Required     |
 | /dictionary/number                | GET         | Get dictionary number       | Required     |
