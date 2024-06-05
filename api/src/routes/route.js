@@ -25,8 +25,20 @@ router.get('/quiz/:id', auth, quizController.getQuizById);
 router.post('/quiz', auth, quizController.createQuiz);
 
 // Auth routes
-router.post('/register', upload.none(), userRegisterValidationRules(), validate, authController.register);
-router.post('/login', upload.none(), userLoginValidationRules(), validate, authController.login);
+router.post(
+  '/register',
+  upload.none(),
+  userRegisterValidationRules(),
+  validate,
+  authController.register
+);
+router.post(
+  '/login',
+  upload.none(),
+  userLoginValidationRules(),
+  validate,
+  authController.login
+);
 router.post('/logout', authController.logout);
 
 // Profile routes

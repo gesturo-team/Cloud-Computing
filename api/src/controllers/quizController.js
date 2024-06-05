@@ -161,15 +161,32 @@ async function createQuiz(req, res) {
 
     const quizRef = userRef.collection('quiz').doc();
 
-    const quiz = {
-      score: '',
-      type: type,
-      questions: questions.map((question) => ({
+    let correctAnswersCount = 0;
+
+    const quizQuestions = questions.map((question) => {
+      const isCorrect = question.answers.some(
+        (answer) => answer.isCorrect && answer.value === question.userAnswer
+      );
+
+      if (isCorrect) {
+        correctAnswersCount += 1;
+      }
+
+      return {
         question: question.question,
         urlImage: question.urlImage || '',
         userAnswer: question.userAnswer || '',
         answers: question.answers,
-      })),
+        isCorrect,
+      };
+    });
+
+    const score = correctAnswersCount;
+
+    const quiz = {
+      score: score.toString(),
+      type: type,
+      questions: quizQuestions,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };
