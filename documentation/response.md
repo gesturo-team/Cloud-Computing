@@ -22,7 +22,13 @@ Status Code: 200
 body:
 {
     "success": true,
-    "message": "Login successful",
+    "message": "User logged in successfully.",
+    "authResult": {
+        "id": "",
+        "fullName": "John Doe",
+        "email": "john.doe@example.com",
+        "token": ""
+    }
 }
 ```
 
@@ -125,7 +131,8 @@ Status Code: 400
 body:
 {
     "success": false,
-    "message": "Logout failed"
+    "message": "Logout failed",
+    "token": null
 }
 ```
 
