@@ -22,7 +22,13 @@ Status Code: 200
 body:
 {
     "success": true,
-    "message": "Login successful",
+    "message": "User logged in successfully.",
+    "authResult": {
+        "id": "",
+        "fullName": "John Doe",
+        "email": "john.doe@example.com",
+        "token": ""
+    }
 }
 ```
 
