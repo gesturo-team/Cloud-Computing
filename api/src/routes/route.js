@@ -45,8 +45,7 @@ router.post('/logout', auth, authController.logout);
 router.get('/profile', auth, profileController.getProfile);
 
 // Dictionary routes
-router.get('/dictionary/alphabet', auth, dictionaryController.getAlphabetDictionary);
-router.get('/dictionary/number', auth, dictionaryController.getNumberDictionary);
+router.get('/dictionary/:type', auth, dictionaryController.getDictionary);
 router.get('/dictionary/:type/:word', auth, dictionaryController.getDictionaryDetails);
 
 export default router;
