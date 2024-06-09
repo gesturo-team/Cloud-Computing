@@ -10,10 +10,19 @@ function getRandomSample(arr, n) {
     .slice(0, n);
 }
 
-async function getQuizAlphabet(req, res) {
+async function getQuiz(req, res) {
   try {
-    const dictionaryAlphabet = db.collection('dictionary').doc('alphabet');
-    const dictionaryWordlistSnapshot = await dictionaryAlphabet
+    const type = req.params.type;
+
+    if (!['alphabet', 'number'].includes(type)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid type',
+      });
+    }
+
+    const dictionary = db.collection('dictionary').doc(type);
+    const dictionaryWordlistSnapshot = await dictionary
       .collection('wordList')
       .get();
 
@@ -49,7 +58,7 @@ async function getQuizAlphabet(req, res) {
     if (questions.length === 10) {
       const data = {
         score: '0',
-        type: 'alphabet',
+        type: type,
         questions: questions,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
@@ -68,72 +77,7 @@ async function getQuizAlphabet(req, res) {
   } catch (error) {
     console.error(error);
     return res.status(500).json({
-      status: false,
-      message: 'Internal Server Error',
-      error: error.message,
-    });
-  }
-}
-
-async function getQuizNumber(req, res) {
-  try {
-    const dictionaryNumber = db.collection('dictionary').doc('number');
-    const dictionaryWordlistSnapshot = await dictionaryNumber
-      .collection('wordList')
-      .get();
-
-    const dictionaryWordlist = dictionaryWordlistSnapshot.docs.map((doc) =>
-      doc.data()
-    );
-
-    const sampledWordlist = getRandomSample(dictionaryWordlist, 10);
-
-    const questions = sampledWordlist.map((data) => {
-      const incorrectAnswers = getRandomSample(
-        dictionaryWordlist.filter((item) => item.value !== data.value),
-        3
-      ).map((item) => ({
-        value: item.value,
-        correct: false,
-      }));
-
-      const answers = [
-        { value: data.value, correct: true },
-        ...incorrectAnswers,
-      ].sort(() => 0.5 - Math.random());
-
-      return {
-        question: data.value,
-        correct: false,
-        urlImage: data.urlImage,
-        userAnswer: '',
-        answers: answers,
-      };
-    });
-
-    if (questions.length === 10) {
-      const data = {
-        score: '0',
-        type: 'number',
-        questions: questions,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      };
-
-      return res.status(200).json({
-        success: true,
-        data: data,
-      });
-    } else {
-      return res.status(400).json({
-        success: false,
-        message: 'Quiz failed to obtain',
-      });
-    }
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({
-      status: false,
+      success: false,
       message: 'Internal Server Error',
       error: error.message,
     });
@@ -315,8 +259,7 @@ async function getQuizHistory(req, res) {
 }
 
 export default {
-  getQuizAlphabet,
-  getQuizNumber,
+  getQuiz,
   getQuizById,
   createQuiz,
   getQuizHistory,

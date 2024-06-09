@@ -18,11 +18,10 @@ router.get('/', auth, (req, res) => {
 });
 
 // Quiz
-router.get('/quiz/alphabet', auth, quizController.getQuizAlphabet);
-router.get('/quiz/number', auth, quizController.getQuizNumber);
-router.get('/quiz/history/', auth, quizController.getQuizHistory);
-router.get('/quiz/:id', auth, quizController.getQuizById);
-router.post('/quiz', auth, quizController.createQuiz);
+router.get('/quizzes/type/:type', auth, quizController.getQuiz);
+router.get('/quizzes/history/', auth, quizController.getQuizHistory);
+router.get('/quizzes/:id', auth, quizController.getQuizById);
+router.post('/quizzes', auth, quizController.createQuiz);
 
 // Auth routes
 router.post(
@@ -45,8 +44,7 @@ router.post('/logout', auth, authController.logout);
 router.get('/profile', auth, profileController.getProfile);
 
 // Dictionary routes
-router.get('/dictionary/alphabet', auth, dictionaryController.getAlphabetDictionary);
-router.get('/dictionary/number', auth, dictionaryController.getNumberDictionary);
+router.get('/dictionary/:type', auth, dictionaryController.getDictionary);
 router.get('/dictionary/:type/:word', auth, dictionaryController.getDictionaryDetails);
 
 export default router;

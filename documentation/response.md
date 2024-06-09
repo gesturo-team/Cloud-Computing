@@ -1,4 +1,4 @@
-# Documentation
+# API Endpoint
 
 ## Login
 
@@ -8,7 +8,7 @@
   <br>
 - Request:
 
-```
+```JSON
 {
     "email": "user@example.com",
     "password": "userpassword"
@@ -17,7 +17,7 @@
 
 - Response:
 
-```
+```JSON
 Status Code: 200
 body:
 {
@@ -32,7 +32,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 400
 body:
 {
@@ -41,7 +41,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 500
 body:
 {
@@ -61,7 +61,7 @@ body:
 
 - Request:
 
-```
+```JSON
 {
     "firstName": "John",
     "lastName": "Doe",
@@ -72,7 +72,7 @@ body:
 
 - Response:
 
-```
+```JSON
 Status Code: 200
 body:
 {
@@ -87,7 +87,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 400
 body:
 {
@@ -96,7 +96,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 500
 body:
 {
@@ -117,7 +117,7 @@ body:
 - Response:
   <br>
 
-```
+```JSON
 Status Code: 200
 body:
 {
@@ -126,7 +126,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 400
 body:
 {
@@ -136,7 +136,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 500
 body:
 {
@@ -157,7 +157,7 @@ body:
 
 - Response:
 
-```
+```JSON
 Status Code: 200
 body:
 {
@@ -174,7 +174,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 400
 body:
 {
@@ -183,7 +183,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 500
 body:
 {
@@ -204,7 +204,7 @@ body:
 
 - Response:
 
-```
+```JSON
 Status Code: 200
 body:
 {
@@ -233,7 +233,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code:400
 body:
 {
@@ -242,7 +242,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 500
 body:
 {
@@ -264,7 +264,7 @@ body:
 
 - Response:
 
-```
+```JSON
 Status Code: 200
 body:
 {
@@ -293,7 +293,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code:400
 body:
 {
@@ -362,13 +362,13 @@ body:
 
 - Auth : Required
 - Method : `GET`
-- URL : `/quiz/alphabet`
+- URL : `/quizzes/type/alphabet`
 - Headers : `Authorization : Bearer <token>`
   <br>
 
 - Response:
 
-```
+```JSON
 Status Code: 200
 body:
 {
@@ -414,7 +414,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code:400
 body:
 {
@@ -423,7 +423,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 500
 body:
 {
@@ -438,13 +438,13 @@ body:
 
 - Auth : Required
 - Method : `GET`
-- URL : `/quiz/number`
+- URL : `/quizzes/type/number`
 - Headers : `Authorization : Bearer <token>`
   <br>
 
 - Response:
 
-```
+```JSON
 Status Code: 200
 body:
 {
@@ -490,7 +490,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code:400
 body:
 {
@@ -499,7 +499,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 500
 body:
 {
@@ -520,7 +520,7 @@ body:
 
 - Request:
 
-```
+```JSON
 {
     "id": "",
     "score": "",
@@ -764,7 +764,7 @@ body:
 
 - Response:
 
-```
+```JSON
 Status Code:201
 body:
 {
@@ -773,7 +773,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code:400
 body:
 {
@@ -782,7 +782,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 500
 body:
 {
@@ -798,14 +798,14 @@ body:
 
 - Auth : Recquired
 - Method : `GET`
-- URL : `/quiz/history`
+- URL : `/quizzes/history`
 - Headers : `Authorization : Bearer <token>`
 - Parameters : count (optional): Gets the number of historical entries (0-9999).
   <br>
 
 - Response:
 
-```
+```JSON
 Status Code: 200
 body:
 {
@@ -861,7 +861,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code:400
 body:
 {
@@ -870,7 +870,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 500
 body:
 {
@@ -885,13 +885,13 @@ body:
 
 - Auth : Required
 - Method : `GET`
-- URL : `/quiz/{{ quizId }}`
+- URL : `/quizzes/{{ quizId }}`
 - Headers : `Authorization : Bearer <token>`
   <br>
 
 - Response:
 
-```
+```JSON
 Status Code: 201
 body:
 {
@@ -937,7 +937,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code:400
 body:
 {
@@ -946,7 +946,7 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code: 500
 body:
 {
