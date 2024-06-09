@@ -38,13 +38,13 @@ router.post(
   validate,
   authController.login
 );
-router.post('/logout', authController.logout);
+router.post('/logout', auth, authController.logout);
 
 // Profile routes
 router.get('/profile', auth, profileController.getProfile);
 
 // Dictionary routes
-router.get('/dictionary/alphabet', auth, dictionaryController.alphabet);
-router.get('/dictionary/number', auth, dictionaryController.number);
+router.get('/dictionary/:type', auth, dictionaryController.getDictionary);
+router.get('/dictionary/:type/:word', auth, dictionaryController.getDictionaryDetails);
 
 export default router;

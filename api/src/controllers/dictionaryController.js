@@ -1,8 +1,10 @@
 import db from '../configs/database.js';
 
-async function alphabet(req, res) {
+async function getDictionary(req, res) {
+  const { type } = req.params;
+
   try {
-    const mainDoc = await db.collection('dictionary').doc('alphabet').get();
+    const mainDoc = await db.collection('dictionary').doc(type).get();
     const mainData = mainDoc.data();
 
     if (!mainData) {
@@ -14,7 +16,7 @@ async function alphabet(req, res) {
 
     const snapshotAlphabet = await db
       .collection('dictionary')
-      .doc('alphabet')
+      .doc(type)
       .collection('wordList')
       .get();
     const wordList = snapshotAlphabet.docs.map((doc) => {
@@ -27,11 +29,11 @@ async function alphabet(req, res) {
       };
     });
 
-    wordList.sort((a, b) => a.value - b.value);
+    wordList.sort((a, b) => a.value.localeCompare(b.value));
 
     return res.status(200).json({
       success: true,
-      message: 'Dictionary alphabet obtained successfully',
+      message: `Dictionary ${type} obtained successfully`,
       data: {
         _id: mainDoc.id,
         type: mainData.type,
@@ -49,44 +51,34 @@ async function alphabet(req, res) {
   }
 }
 
-async function number(req, res) {
+async function getDictionaryDetails(req, res) {
   try {
-    const mainDoc = await db.collection('dictionary').doc('number').get();
-    const mainData = mainDoc.data();
+    const { type, word } = req.params;
 
-    if (!mainData) {
+    const snapshot = await db
+      .collection('dictionary')
+      .doc(type)
+      .collection('wordList')
+      .where('value', '==', word)
+      .get();
+
+    if (snapshot.empty) {
       return res.status(404).json({
         success: false,
-        message: 'Dictionary failed to obtain.',
+        message: 'Dictionary detail failed to obtain.',
       });
     }
 
-    const snapshotNumber = await db
-      .collection('dictionary')
-      .doc('number')
-      .collection('wordList')
-      .get();
-    const wordList = snapshotNumber.docs.map((doc) => {
-      const data = doc.data();
-      return {
-        _id: doc.id,
-        value: data.value,
-        urlImage: data.urlImage,
-        description: data.description,
-      };
-    });
-
-    wordList.sort((a, b) => a.value - b.value);
+    const data = snapshot.docs[0].data();
 
     return res.status(200).json({
       success: true,
-      message: 'Dictionary number obtained successfully',
+      message: 'Dictionary detail obtained successfully',
       data: {
-        _id: mainDoc.id,
-        type: mainData.type,
-        createdAt: mainData.createdAt,
-        updatedAt: mainData.updatedAt,
-        wordList: wordList,
+        _id: snapshot.docs[0].id,
+        value: data.value,
+        urlImage: data.urlImage,
+        description: data.description,
       },
     });
   } catch (error) {
@@ -99,6 +91,6 @@ async function number(req, res) {
 }
 
 export default {
-  alphabet,
-  number,
+  getDictionary,
+  getDictionaryDetails,
 };

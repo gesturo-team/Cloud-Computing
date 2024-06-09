@@ -68,10 +68,9 @@ body:
     "email": "john.doe@example.com",
     "password": "securepassword"
 }
-
 ```
 
-- Respoonse:
+- Response:
 
 ```JSON
 Status Code: 200
@@ -115,7 +114,7 @@ body:
 - URL : `/logout`
 - Headers : `Authorization : Bearer <token>`
 
-- Respoonse:
+- Response:
   <br>
 
 ```JSON
@@ -203,7 +202,7 @@ body:
 - Headers : `Authorization : Bearer <token>`
   <br>
 
-- Respoonse:
+- Response:
 
 ```JSON
 Status Code: 200
@@ -314,6 +313,51 @@ body:
 
 <br>
 
+## Dictionary Detail
+
+- Auth : Required
+- Method : `GET`
+- URL : `/dictionary/{{ type }}/{{ word }}`
+- Headers : `Authorization : Bearer <token>`
+  <br>
+
+- Response:
+
+```
+Status Code: 200
+body:
+{
+    "success": true,
+    "message": "Dictionary detail obtain succesfully",
+    "data": {
+        "_id": "",
+        "value": "",
+        "urlImage": "",
+        "description": ""
+    }
+}
+```
+
+```
+Status Code:400
+body:
+{
+    "success": false,
+    "message": "Dictionary detail failed to obtain",
+}
+```
+
+```
+Status Code: 500
+body:
+{
+    "success": false,
+    "message": "Internal Server Error",
+}
+```
+
+<br>
+
 ## Get Quiz Alphabet
 
 - Auth : Required
@@ -322,7 +366,7 @@ body:
 - Headers : `Authorization : Bearer <token>`
   <br>
 
-- Respoonse:
+- Response:
 
 ```JSON
 Status Code: 200
@@ -398,7 +442,7 @@ body:
 - Headers : `Authorization : Bearer <token>`
   <br>
 
-- Respoonse:
+- Response:
 
 ```JSON
 Status Code: 200
@@ -718,7 +762,7 @@ body:
 }
 ```
 
-- Respoonse:
+- Response:
 
 ```JSON
 Status Code:201
@@ -759,7 +803,7 @@ body:
 - Parameters : count (optional): Gets the number of historical entries (0-9999).
   <br>
 
-- Respoonse:
+- Response:
 
 ```JSON
 Status Code: 200
@@ -845,7 +889,7 @@ body:
 - Headers : `Authorization : Bearer <token>`
   <br>
 
-- Respoonse:
+- Response:
 
 ```JSON
 Status Code: 201
