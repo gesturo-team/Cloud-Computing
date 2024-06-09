@@ -44,12 +44,12 @@
 | /profile               | GET         | Get user profile            | Required     |
 | /dictionary/alphabet   | GET         | Get dictionary alphabet     | Required     |
 | /dictionary/number     | GET         | Get dictionary number       | Required     |
-| /quizzes/type/alphabet | GET         | Get alphabet quiz           | Required     |
-| /quizzes/type/number   | GET         | Get number quiz             | Required     |
 | /quizzes               | POST        | Submit a quiz               | Required     |
+| /quizzes/{{ id }}      | GET         | Get quiz details            | Required     |
+| /quizzes/type/number   | GET         | Get number quiz             | Required     |
+| /quizzes/type/alphabet | GET         | Get alphabet quiz           | Required     |
 | /quizzes/history       | GET         | Get all user quiz history   | Required     |
 | /quizzes/history?count | GET         | Get count user quiz history | Required     |
-| /quizzes/{{ quizId }}  | GET         | Get quiz details            | Required     |
 
 ## API Endpoint
 
