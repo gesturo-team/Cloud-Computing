@@ -32,20 +32,16 @@
 
 ## Dependencies
 
-```JSON
-{
-  "@google-cloud/firestore": "^7.7.0",
-  "bcrypt": "^5.1.1",
-  "cookie-parser": "^1.4.5",
-  "cors": "^2.8.5",
-  "dotenv": "^16.4.5",
-  "express": "^4.19.2",
-  "express-validator": "^7.1.0",
-  "firebase-admin": "^12.1.1",
-  "jsonwebtoken": "^9.0.2",
-  "multer": "^1.4.5-lts.1"
-}
-```
+- [**@google-cloud/firestore**](https://www.npmjs.com/package/@google-cloud/firestore) - Version: ^7.7.0
+- [**bcrypt**](https://www.npmjs.com/package/bcrypt) - Version: ^5.1.1
+- [**cookie-parser**](https://www.npmjs.com/package/cookie-parser) - Version: ^1.4.5
+- [**cors**](https://www.npmjs.com/package/cors) - Version: ^2.8.5
+- [**dotenv**](https://www.npmjs.com/package/dotenv) - Version: ^16.4.5
+- [**express**](https://www.npmjs.com/package/express) - Version: ^4.19.2
+- [**express-validator**](https://www.npmjs.com/package/express-validator) - Version: ^7.1.0
+- [**firebase-admin**](https://www.npmjs.com/package/firebase-admin) - Version: ^12.1.1
+- [**jsonwebtoken**](https://www.npmjs.com/package/jsonwebtoken) - Version: ^9.0.2
+- [**multer**](https://www.npmjs.com/package/multer) - Version: ^1.4.5-lts.1
 
 ## Recap Endpoint Routes
 
