@@ -1,5 +1,18 @@
 # Cloud Computing Documentation
 
+## Table of Content
+
+- [Cloud Computing Documentation](#cloud-computing-documentation)
+  - [Diagram Architecture](#diagram-architecture)
+  - [Firestore Database Structure](#firestore-database-structure)
+  - [Tech Architecture](#tech-architecture)
+  - [Dependencies](#dependencies)
+  - [Recap Endpoint Routes](#recap-endpoint-routes)
+  - [API Endpoint](#api-endpoint)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [Contributor](#contributor)
+
 ## Diagram Architecture
 
 <img src="documentation/architecture.png">
@@ -57,47 +70,46 @@ For detailed information on each API endpoint, refer to the <a href="./documenta
 
 ## Installation
 
-Prerequisites
+1. Prerequisites
 
-```
-Node.js (v18.x or later)
-```
+- Ensure you have Node.js installed, preferably version 18.x or later.
 
-Clone The Project
+2. Clone The Project
 
-```
+```bash
 git clone https://github.com/gesturo-team/Cloud-Computing.git
 cd Cloud-Computing
 ```
 
-Install Dependencies
+3. Install Dependencies
 
-```
+```bash
 npm install
 ```
 
-.env
+4. Environment Variables (.env)
 
-```
+- Create a `.env` file in the root directory of the project.
+- Set the following environment variables:
+
+```plaintext
 PORT=<Your_Port>
 JWT_SECRET=<Your_JWT>
 ```
 
-## Running the Application
+5. Running the Application
 
-Development Mode
+- To start the application in development mode, run:
 
-```
+```bash
 npm run start:dev
 ```
 
-Production Mode
+- For production mode, simply run:
 
-```
+```bash
 npm start
 ```
-
-<hr>
 
 ## Contributor
 

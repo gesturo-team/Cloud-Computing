@@ -19,7 +19,6 @@
 
 ```JSON
 Status Code: 200
-body:
 {
     "success": true,
     "message": "User logged in successfully.",
@@ -34,7 +33,6 @@ body:
 
 ```JSON
 Status Code: 400
-body:
 {
     "success": false,
     "message": "Invalid email or password"
@@ -43,7 +41,6 @@ body:
 
 ```JSON
 Status Code: 500
-body:
 {
     "success": false,
     "message": "Internal Server Error",
@@ -74,22 +71,20 @@ body:
 
 ```JSON
 Status Code: 200
-body:
 {
     "success": true,
     "message": "User registered successfully",
     "authResult": {
-        id: "123",
-        fullName: "John Doe",
-        email: "john.doe@example.com",
-        token: "token",
+        "id": "123",
+        "fullName": "John Doe",
+        "email": "john.doe@example.com",
+        "token": "token",
       }
 }
 ```
 
 ```JSON
 Status Code: 400
-body:
 {
     "success": false,
     "message": "Register failed"
@@ -98,7 +93,6 @@ body:
 
 ```JSON
 Status Code: 500
-body:
 {
     "success": false,
     "message": "Internal Server Error",
@@ -119,7 +113,6 @@ body:
 
 ```JSON
 Status Code: 200
-body:
 {
     "success": true,
     "message": "Logout successful"
@@ -128,7 +121,6 @@ body:
 
 ```JSON
 Status Code: 400
-body:
 {
     "success": false,
     "message": "Logout failed",
@@ -138,7 +130,6 @@ body:
 
 ```JSON
 Status Code: 500
-body:
 {
     "success": false,
     "message": "Internal Server Error",
@@ -159,7 +150,6 @@ body:
 
 ```JSON
 Status Code: 200
-body:
 {
     "success": true,
     "message": "Profile obtain successfuly"
@@ -176,7 +166,6 @@ body:
 
 ```JSON
 Status Code: 400
-body:
 {
     "success": false,
     "message": "User failed to obtain"
@@ -185,7 +174,6 @@ body:
 
 ```JSON
 Status Code: 500
-body:
 {
     "success": false,
     "message": "Internal Server Error",
@@ -206,7 +194,6 @@ body:
 
 ```JSON
 Status Code: 200
-body:
 {
     "success": true,
     "message": "Dictionary alphabet obtain succesfully",
@@ -235,7 +222,6 @@ body:
 
 ```JSON
 Status Code:400
-body:
 {
     "success": true,
     "message": "Dictionary failed to obtain",
@@ -244,7 +230,6 @@ body:
 
 ```JSON
 Status Code: 500
-body:
 {
     "success": false,
     "message": "Internal Server Error",
@@ -266,7 +251,6 @@ body:
 
 ```JSON
 Status Code: 200
-body:
 {
     "success": true,
     "message": "Dictionary number obtain succesfully",
@@ -295,16 +279,14 @@ body:
 
 ```JSON
 Status Code:400
-body:
 {
     "success": true,
     "message": "Dictionary failed to obtain",
 }
 ```
 
-```
+```JSON
 Status Code: 500
-body:
 {
     "success": false,
     "message": "Internal Server Error",
@@ -323,9 +305,8 @@ body:
 
 - Response:
 
-```
+```JSON
 Status Code: 200
-body:
 {
     "success": true,
     "message": "Dictionary detail obtain succesfully",
@@ -338,18 +319,16 @@ body:
 }
 ```
 
-```
+```JSON
 Status Code:400
-body:
 {
     "success": false,
     "message": "Dictionary detail failed to obtain",
 }
 ```
 
-```
+```JSON
 Status Code: 500
-body:
 {
     "success": false,
     "message": "Internal Server Error",
@@ -370,7 +349,6 @@ body:
 
 ```JSON
 Status Code: 200
-body:
 {
     "success": true,
     "message": "Quiz obtained successfully",
@@ -416,7 +394,6 @@ body:
 
 ```JSON
 Status Code:400
-body:
 {
     "success" : false
     "message": "Quiz failed to obtain"
@@ -425,7 +402,6 @@ body:
 
 ```JSON
 Status Code: 500
-body:
 {
     "success": false,
     "message": "Internal Server Error",
@@ -446,7 +422,6 @@ body:
 
 ```JSON
 Status Code: 200
-body:
 {
     "success": true,
     "message": "Quiz obtained successfully",
@@ -492,7 +467,6 @@ body:
 
 ```JSON
 Status Code:400
-body:
 {
     "success" : false
     "message": "Quiz failed to obtain"
@@ -501,7 +475,6 @@ body:
 
 ```JSON
 Status Code: 500
-body:
 {
     "success": false,
     "message": "Internal Server Error",
@@ -766,7 +739,6 @@ body:
 
 ```JSON
 Status Code:201
-body:
 {
     "success" : false
     "message": "Quiz submited successfully"
@@ -775,7 +747,6 @@ body:
 
 ```JSON
 Status Code:400
-body:
 {
     "success" : true
     "message": "Quiz failed to submit"
@@ -784,7 +755,6 @@ body:
 
 ```JSON
 Status Code: 500
-body:
 {
     "success": false,
     "message": "Internal Server Error",
@@ -807,7 +777,6 @@ body:
 
 ```JSON
 Status Code: 200
-body:
 {
     "success" : true
     "message": "Quiz history obtain successfully"
@@ -863,7 +832,6 @@ body:
 
 ```JSON
 Status Code:400
-body:
 {
     "success" : false
     "message": "Quiz failed to obtain"
@@ -872,7 +840,6 @@ body:
 
 ```JSON
 Status Code: 500
-body:
 {
     "success": false,
     "message": "Internal Server Error",
@@ -893,7 +860,6 @@ body:
 
 ```JSON
 Status Code: 201
-body:
 {
     "success" : true
     "message" : "Quiz obtain succesfully"
@@ -939,7 +905,6 @@ body:
 
 ```JSON
 Status Code:400
-body:
 {
     "success" : false
     "message": "Quiz failed to obtain"
@@ -948,7 +913,6 @@ body:
 
 ```JSON
 Status Code: 500
-body:
 {
     "success": false,
     "message": "Internal Server Error",
