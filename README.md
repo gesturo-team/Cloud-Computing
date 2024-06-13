@@ -10,7 +10,6 @@
   - [Recap Endpoint Routes](#recap-endpoint-routes)
   - [API Endpoint](#api-endpoint)
   - [Installation](#installation)
-  - [Running the Application](#running-the-application)
   - [Setup Google Cloud](#setup-google-cloud)
     - [App Engine](#app-engine)
     - [Cloud Storage](#cloud-storage)
@@ -21,16 +20,19 @@
   - [Deploy Google Cloud](#deploy-google-cloud)
     - [App Engine](#app-engine-1)
   - [Contributor](#contributor)
-    <br>
+  
+<br>
 
 ## Diagram Architecture
 
 <img src="documentation/architecture.png">
+
 <br>
 
 ## Firestore Database Structure
 
 <img src="documentation/firestore.png">
+
 <br>
 
 ## Tech Architecture
@@ -41,7 +43,8 @@
 - Cloud Storage
 - Tensorflow Lite
 - Firestore
-  <br>
+- 
+<br>
 
 ## Dependencies
 
@@ -54,7 +57,8 @@
 - [**firebase-admin**](https://www.npmjs.com/package/firebase-admin) - Version: ^12.1.1
 - [**jsonwebtoken**](https://www.npmjs.com/package/jsonwebtoken) - Version: ^9.0.2
 - [**multer**](https://www.npmjs.com/package/multer) - Version: ^1.4.5-lts.1
-  <br>
+- 
+<br>
 
 ## Recap Endpoint Routes
 
@@ -129,82 +133,84 @@ npm start
 
 ### App Engine
 
-- Open [Google Cloud Console](https://console.cloud.google.com/).
-- Go to App Engine.
-- Start a app engine by clicking CREATE APPLICATIOn button.
-- Choose your region (We Use asia-souteast-2) and click next.
-- Click I'LL DO THIS LATER.
+1. Open [Google Cloud Console](https://console.cloud.google.com/).
+2. Go to App Engine.
+3. Start a app engine by clicking CREATE APPLICATIOn button.
+4. Choose your region (We Use asia-souteast-2) and click next.
+5. Click I'LL DO THIS LATER.
 
 ### Cloud Storage
 
-- Open [Google Cloud Console](https://console.cloud.google.com/).
-- Go to Cloud Storage.
-- Create a bucket by clicking CREATE button.
-- Set your globally unique bucket name.
-- Choose your region (We Use asia-souteast-2).
-- Set a default class (Standard).
-- Uncheck the <I>Enforce public access prevent ...</I>
-- Select Access Control as `Fine-grained`.
-- Then, hit CREATE.
-- On your buckets, click the three dots at the right of your bucket.
-- Click Edit Access and click Add Principal.
-- In the new principal column type `allUsers`.
-- In the role column select Cloud Storage > `Storage Object Viewer`.
-- Click Save.
+1. Open [Google Cloud Console](https://console.cloud.google.com/).
+2. Go to Cloud Storage.
+3. Create a bucket by clicking CREATE button.
+4. Set your globally unique bucket name.
+5. Choose your region (We Use asia-souteast-2).
+6. Set a default class (Standard).
+7. Uncheck the <I>Enforce public access prevent ...</I>
+8. Select Access Control as `Fine-grained`.
+9. Then, hit CREATE.
+10. On your buckets, click the three dots at the right of your bucket.
+11. Click Edit Access and click Add Principal.
+12. In the new principal column type `allUsers`.
+13. In the role column select Cloud Storage > `Storage Object Viewer`.
+14. Click Save.
 
 ### Firestore
 
-- Open [Google Cloud Console](https://console.cloud.google.com/).
-- Go to Firestore.
-- Crete a databases by clicking CREATE DATABASE button.
-- Set a firestore mode (Native Mode) and click continue.
-- Set a database id (default).
-- Choose your region (We Use asia-souteast-2).
-- Click CREATE DATABASE button.
-  <br>
+1. Open [Google Cloud Console](https://console.cloud.google.com/).
+2. Go to Firestore.
+3. Crete a databases by clicking CREATE DATABASE button.
+4. Set a firestore mode (Native Mode) and click continue.
+5. Set a database id (default).
+6. Choose your region (We Use asia-souteast-2).
+7. Click CREATE DATABASE button.
+
+<br>
 
 ## Setup Service Account
 
 ### Firestore
 
-- Go to IAM & Admin > Service Accounts or click [here](https://console.cloud.google.com/iam-admin/serviceaccounts).
-- Select your project.
-- Click Create Service Account
-- Set your name, Select role `Firebase Admin`
-- Click your service account email > KEYS > Select ADD KEY and click Create new key.
-- Select JSON and click CREATE.
-- Save your credential account.
+1. Go to IAM & Admin > Service Accounts or click [here](https://console.cloud.google.com/iam-admin/serviceaccounts).
+2. Select your project.
+3. Click Create Service Account
+4. Set your name, Select role `Firebase Admin`
+5. Click your service account email > KEYS > Select ADD KEY and click Create new key.
+6. Select JSON and click CREATE.
+7. Save your credential account.
 
 ### Cloud Storage
 
-- Go to IAM & Admin > Service Accounts or click [here](https://console.cloud.google.com/iam-admin/serviceaccounts).
-- Select your project.
-- Click Create Service Account
-- Set your name, Select role Cloud Storage > `Storage Admin`
-- Click your service account email > KEYS > Select ADD KEY and click Create new key.
-- Select JSON and click CREATE.
-- Save your credential account.
-  <br>
+1. Go to IAM & Admin > Service Accounts or click [here](https://console.cloud.google.com/iam-admin/serviceaccounts).
+2. Select your project.
+3. Click Create Service Account
+4. Set your name, Select role Cloud Storage > `Storage Admin`
+5. Click your service account email > KEYS > Select ADD KEY and click Create new key.
+6. Select JSON and click CREATE.
+7. Save your credential account.
+
+<br>
 
 ## Deploy Google Cloud
 
 ### App Engine
 
-- Open your Cloud Shell by clicking [here](https://shell.cloud.google.com/).
-- Set your project.
+1. Open your Cloud Shell by clicking [here](https://shell.cloud.google.com/).
+2. Set your project.
 
 ```bash
   gcloud config set project [PROJECT_ID]
 ```
 
-- Clone this repository by the below command.
+3. Clone this repository by the below command.
 
 ```bash
   git clone -b master https://github.com/gesturo-team/Cloud-Computing
   cd Cloud Computing/api
 ```
 
-- Create a .env file and import your JWT Secret Key and Port into .env file.
+4. Create a .env file and import your JWT Secret Key and Port into .env file.
 
 ```
   touch .env && nano .env
@@ -215,24 +221,25 @@ npm start
   JWT_SECRET=<Your_JWT>
 ```
 
-- Upload your Service Account Credentials to the Cloud Computing/api/src/configs.
-- Rename the file as `serviceKey.json`.
+5. Upload your Service Account Credentials to the Cloud Computing/api/src/configs.
+6. Rename the file as `serviceKey.json`.
 
-- Install node package by the bellow command.
+7. Install node package by the bellow command.
 
 ```bash
   npm install
 ```
 
-- Deploy the API by running the command on your cloud shell.
+8. Deploy the API by running the command on your cloud shell.
 
 ```bash
   gcloud app deploy
 ```
 
-- Type youyr service name and select your region (We Use asia-souteast-2).
-- Wait until it finishes.
-  <br>
+9. Type youyr service name and select your region (We Use asia-souteast-2).
+10. Wait until it finishes.
+
+<br>
 
 ## Contributor
 
