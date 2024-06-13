@@ -43,7 +43,7 @@
 - Cloud Storage
 - Tensorflow Lite
 - Firestore
-- 
+  
 <br>
 
 ## Dependencies
@@ -57,7 +57,7 @@
 - [**firebase-admin**](https://www.npmjs.com/package/firebase-admin) - Version: ^12.1.1
 - [**jsonwebtoken**](https://www.npmjs.com/package/jsonwebtoken) - Version: ^9.0.2
 - [**multer**](https://www.npmjs.com/package/multer) - Version: ^1.4.5-lts.1
-- 
+  
 <br>
 
 ## Recap Endpoint Routes
@@ -82,6 +82,7 @@
 ## API Endpoint
 
 For detailed information on each API endpoint, refer to the <a href="./documentation/response.md"> API Endpoint Documentation</a>
+
 <br>
 
 ## Installation
