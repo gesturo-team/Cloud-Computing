@@ -208,7 +208,7 @@ npm start
 
 ```bash
   git clone -b master https://github.com/gesturo-team/Cloud-Computing
-  cd Cloud Computing/api
+  cd Cloud-Computing/api
 ```
 
 4. Create a .env file and import your JWT Secret Key and Port into .env file.
