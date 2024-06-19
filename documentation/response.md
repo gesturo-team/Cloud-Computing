@@ -1,5 +1,26 @@
 # API Endpoint
 
+## Table of Content
+
+- [Auth](#auth)
+  - [Login](#login)
+  - [Register](#register)
+  - [Logout](#logout)
+  - [Profile](#profile)
+- [Dictionary](#dictionary)
+  - [Dictionary Alphabet](#dictionary-alphabet)
+  - [Dictionary Number](#dictionary-number)
+  - [Dictionary Detail](#dictionary-detail)
+- [Quizzes](#quizzes)
+  - [Get Quiz Alphabet](#get-quiz-alphabet)
+  - [Get Quiz Number](#get-quiz-number)
+  - [Post Quiz](#post-quiz)
+  - [Get Quiz History User](#get-quiz-history-user)
+  - [Get Quiz Detail](#get-quiz-detail)
+    
+<br>
+
+# Auth
 ## Login
 
 - Auth : Not Required
@@ -182,6 +203,7 @@ Status Code: 500
 
 <br>
 
+# Dictionary
 ## Dictionary Alphabet
 
 - Auth : Required
@@ -337,6 +359,7 @@ Status Code: 500
 
 <br>
 
+# Quizzes
 ## Get Quiz Alphabet
 
 - Auth : Required
