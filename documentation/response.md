@@ -18,10 +18,8 @@
   - [Get Quiz History User](#get-quiz-history-user)
   - [Get Quiz Detail](#get-quiz-detail)
     
-<br>
-
-# Auth
-## Login
+## Auth
+### Login
 
 - Auth : Not Required
 - Method : `POST`
@@ -68,9 +66,7 @@ Status Code: 500
 }
 ```
 
-<br>
-
-## Register
+### Register
 
 - Auth : Not Required
 - Method : `POST`
@@ -120,9 +116,7 @@ Status Code: 500
 }
 ```
 
-<br>
-
-## Logout
+### Logout
 
 - Auth : Required
 - Method : `POST`
@@ -157,9 +151,7 @@ Status Code: 500
 }
 ```
 
-<br>
-
-## Profile
+### Profile
 
 - Auth : Required
 - Method :
@@ -201,10 +193,8 @@ Status Code: 500
 }
 ```
 
-<br>
-
-# Dictionary
-## Dictionary Alphabet
+## Dictionary
+### Dictionary Alphabet
 
 - Auth : Required
 - Method : `GET`
@@ -259,9 +249,7 @@ Status Code: 500
 
 ```
 
-<br>
-
-## Dictionary Number
+### Dictionary Number
 
 - Auth : Required
 - Method : `GET`
@@ -315,9 +303,7 @@ Status Code: 500
 }
 ```
 
-<br>
-
-## Dictionary Detail
+### Dictionary Detail
 
 - Auth : Required
 - Method : `GET`
@@ -357,10 +343,8 @@ Status Code: 500
 }
 ```
 
-<br>
-
-# Quizzes
-## Get Quiz Alphabet
+## Quizzes
+### Get Quiz Alphabet
 
 - Auth : Required
 - Method : `GET`
@@ -431,9 +415,7 @@ Status Code: 500
 }
 ```
 
-<br>
-
-## Get Quiz Number
+### Get Quiz Number
 
 - Auth : Required
 - Method : `GET`
@@ -504,9 +486,7 @@ Status Code: 500
 }
 ```
 
-<br>
-
-## Post Quiz
+### Post Quiz
 
 - Auth : Required
 - Method : `POST`
@@ -579,9 +559,7 @@ Status Code: 500
 
 ```
 
-<br>
-
-## Get Quiz History User
+### Get Quiz History User
 
 - Auth : Recquired
 - Method : `GET`
@@ -663,9 +641,7 @@ Status Code: 500
 }
 ```
 
-<br>
-
-## Get Quiz Detail
+### Get Quiz Detail
 
 - Auth : Required
 - Method : `GET`
