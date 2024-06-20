@@ -20,20 +20,14 @@
   - [Deploy Google Cloud](#deploy-google-cloud)
     - [App Engine](#app-engine-1)
   - [Contributor](#contributor)
-  
-<br>
 
 ## Diagram Architecture
 
 <img src="documentation/architecture.png">
 
-<br>
-
 ## Firestore Database Structure
 
 <img src="documentation/firestore.png">
-
-<br>
 
 ## Tech Architecture
 
@@ -43,8 +37,6 @@
 - Cloud Storage
 - Tensorflow Lite
 - Firestore
-  
-<br>
 
 ## Dependencies
 
@@ -57,8 +49,6 @@
 - [**firebase-admin**](https://www.npmjs.com/package/firebase-admin) - Version: ^12.1.1
 - [**jsonwebtoken**](https://www.npmjs.com/package/jsonwebtoken) - Version: ^9.0.2
 - [**multer**](https://www.npmjs.com/package/multer) - Version: ^1.4.5-lts.1
-  
-<br>
 
 ## Recap Endpoint Routes
 
@@ -77,13 +67,9 @@
 | /quizzes/history       | GET         | Get all user quiz history   | Required     |
 | /quizzes/history?count | GET         | Get count user quiz history | Required     |
 
-<br>
-
 ## API Endpoint
 
 For detailed information on each API endpoint, refer to the <a href="./documentation/response.md"> API Endpoint Documentation</a>
-
-<br>
 
 ## Installation
 
@@ -128,8 +114,6 @@ npm run start:dev
 npm start
 ```
 
-<br>
-
 ## Setup Google Cloud
 
 ### App Engine
@@ -167,8 +151,6 @@ npm start
 6. Choose your region (We Use asia-souteast-2).
 7. Click CREATE DATABASE button.
 
-<br>
-
 ## Setup Service Account
 
 ### Firestore
@@ -190,8 +172,6 @@ npm start
 5. Click your service account email > KEYS > Select ADD KEY and click Create new key.
 6. Select JSON and click CREATE.
 7. Save your credential account.
-
-<br>
 
 ## Deploy Google Cloud
 
@@ -239,8 +219,6 @@ npm start
 
 9. Type youyr service name and select your region (We Use asia-souteast-2).
 10. Wait until it finishes.
-
-<br>
 
 ## Contributor
 
